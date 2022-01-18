@@ -10,11 +10,8 @@ const PokemonSchema = new Schema({
       ref: 'Type',
     },
   ],
-  moves: [
-    {
-      type: String,
-    },
-  ],
+  moves: [String],
+  image: String,
 });
 
 // Virtual for author's URL
