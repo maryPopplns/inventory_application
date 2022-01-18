@@ -1,8 +1,8 @@
 ## poke inventory
 
-#### models
+#### schema
 
-![inventory models](public/images/pokeinventory_models.png)
+![inventory models](public/images/pokeinventory_schema.png)
 
 #### Learned
 
