@@ -8,7 +8,11 @@ const PokemonSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Type',
-      validate: [(input) => input.length < 10, 'too many types'],
+    },
+  ],
+  moves: [
+    {
+      type: String,
     },
   ],
 });

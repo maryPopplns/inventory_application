@@ -5,6 +5,7 @@ const winston = require('winston');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const Pokemon = require(path.join(__dirname, '/models/pokemon'));
 require('dotenv').config();
 
 const indexRouter = require('./routes/index');
@@ -23,7 +24,34 @@ mongoose.connect(MONGO_STRING, {
 });
 var db = mongoose.connection;
 
-app.use(morgan(process.env.ENVIORNMENT));
+var pokemon = new Pokemon({
+  name: 'spencer',
+  types: [
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'ten',
+    '11',
+  ],
+});
+
+pokemon.save(function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('success');
+  }
+
+  //successful - redirect to new book record.
+});
+
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
