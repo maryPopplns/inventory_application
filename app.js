@@ -22,6 +22,7 @@ mongoose.connect(process.env.MONGO_STRING, {
   useUnifiedTopology: true,
 });
 var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(morgan('dev'));
 app.use(express.json());
