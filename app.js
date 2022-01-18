@@ -16,14 +16,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // mongo connection
-const MONGO_STRING = `mongodb+srv://spencer:${process.env.DB_PASSWORD}@pokeinventory.zvgww.mongodb.net/pokeInventory?retryWrites=true&w=majority`;
+const MONGO_STRING = `mongodb+srv://spencer:${process.env.DB_PASSWORD}@${process.env.DB}.zvgww.mongodb.net/pokeInventory?retryWrites=true&w=majority`;
 mongoose.connect(MONGO_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 var db = mongoose.connection;
 
-app.use(morgan('dev'));
+app.use(morgan(process.env.ENVIORNMENT));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
