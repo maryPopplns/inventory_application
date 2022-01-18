@@ -1,9 +1,9 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
 const cookieParser = require('cookie-parser');
+const createError = require('http-errors');
 const winston = require('winston');
+const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -12,6 +12,9 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+const MONGO_STRING =
+  'mongodb+srv://spencer:<password>@pokeinventory.zvgww.mongodb.net/pokeInventory?retryWrites=true&w=majority';
 
 app.use(morgan('dev'));
 app.use(express.json());
