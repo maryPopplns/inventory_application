@@ -1,9 +1,11 @@
 const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
+const mongoose = require('mongoose');
 const winston = require('winston');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -13,8 +15,13 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-const MONGO_STRING =
-  'mongodb+srv://spencer:<password>@pokeinventory.zvgww.mongodb.net/pokeInventory?retryWrites=true&w=majority';
+// mongo connection
+const MONGO_STRING = `mongodb+srv://spencer:${process.env.DB_PASSWORD}@pokeinventory.zvgww.mongodb.net/pokeInventory?retryWrites=true&w=majority`;
+mongoose.connect(MONGO_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+var db = mongoose.connection;
 
 app.use(morgan('dev'));
 app.use(express.json());
