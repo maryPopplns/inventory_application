@@ -4,7 +4,7 @@
 
 ![inventory models](public/images/pokeinventory_schema.png)
 
-#### Learned
+### Learned
 
 ##### winston
 
