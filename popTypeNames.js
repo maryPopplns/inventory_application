@@ -48,6 +48,16 @@ async.waterfall(
           callback(error, one);
         });
     },
+    function (names, callback) {
+      const types = names.map((name) => new Type({ name: name }));
+      Type.insertMany(types, function (err, docs) {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, 'success');
+        }
+      });
+    },
   ],
   function (err, result) {
     if (err) {
@@ -57,14 +67,3 @@ async.waterfall(
     mongoose.connection.close();
   }
 );
-
-// const type = new Type({
-//   name: name,
-// });
-// // save or log errors
-// type.save(function (err) {
-//   if (err) {
-//     logger.error(err);
-//     return;
-//   }
-// });
