@@ -1,3 +1,4 @@
+const https = require('https');
 const mongoose = require('mongoose');
 const path = require('path');
 const winston = require('winston');
@@ -23,17 +24,33 @@ const logger = winston.createLogger({
   ],
 });
 
-const PokeInstance = new Pokemon({
-  name: 'placeholder',
-  types: [1, 2],
-  moves: [1, 2],
-  image: 'urlplaceholder',
-});
+// for (let i = 1; i < 19; i++) {
+for (let i = 1; i < 3; i++) {
+  const options = {
+    hostname: 'pokeapi.co',
+    port: 443,
+    path: `/api/v2/type/${i}`,
+    method: 'GET',
+  };
 
-PokeInstance.save(function (err) {
-  if (err) {
-    logger.error(err);
-  }
-  //successful - redirect to new book record.
-  res.redirect(book.url);
-});
+  const req = https.request(options, (res) => {
+    res.on('data', (data) => {
+      console.log(data);
+    });
+  });
+
+  req.on('error', (error) => {
+    winston.error(error);
+  });
+
+  // create model with api data
+  const TypeInstance = new Type({
+    name: '',
+  });
+  // save
+  TypeInstance.save(function (err) {
+    if (err) {
+      logger.error(err);
+    }
+  });
+}
