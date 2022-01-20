@@ -11,6 +11,7 @@ const TypesSchema = new Schema({
   halfDamageTo: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
   noDamageFrom: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
   noDamageTo: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
+  new: String,
 });
 
 // Virtual for author's URL

@@ -51,7 +51,7 @@ async.waterfall(
     },
     function (names, callback) {
       // create array of model instance
-      const types = names.map((name) => new Type({ name: name }));
+      const types = names.map((name) => new Type({ name: name, new: 'one' }));
       Type.insertMany(types, function (err, docs) {
         if (err) {
           callback(err);
@@ -65,7 +65,7 @@ async.waterfall(
     if (err) {
       logger.error(err);
     }
-    console.log(result);
+    console.log(chalk.red(result));
     mongoose.connection.close();
   }
 );

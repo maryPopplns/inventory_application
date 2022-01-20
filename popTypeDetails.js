@@ -47,7 +47,7 @@ async.waterfall(
       axios
         .all(endpoints.map((endpoint) => axios.get(endpoint)))
         .then((data) => {
-          const typesData = data.map((type) => {
+          const typesDetails = data.map((type) => {
             const base = type.data.damage_relations;
             return (typeData = {
               name: type.data.name,
@@ -59,23 +59,43 @@ async.waterfall(
               noDamageTo: base.no_damage_to,
             });
           });
-          callback(null, { types, typesData });
+          callback(null, { types, typesDetails });
         })
         .catch(function (error) {
           callback(error);
         });
     },
+    // function (data, callback) {
+    //   // TODO loop through details and create objects that will be inserted into the next function
+    //   // TODO create object with name:id key:value pairs
+    // },
     function (data, callback) {
-      const { types, typesData } = data;
-      console.log(data);
-      callback(null);
+      // TODO loop through the data in DB to find each
+      // TODO update
+      const { types, typesDetails } = data;
+      //  update the documents
+      async.eachSeries(
+        types,
+        function updateObject(obj, done) {
+          Type.updateOne({ name: obj.name }, { new: 'USS Enterprise' });
+          done;
+        },
+        function allDone(err) {
+          if (err) {
+            callback('updating: ' + err);
+          } else {
+            callback(null, 'success');
+          }
+          // this will be called when all the updates are done or an error occurred during the iteration
+        }
+      );
     },
   ],
   function (err, result) {
     if (err) {
       logger.error(err);
     }
-    // console.log(result);
+    console.log(chalk.green(result));
     mongoose.connection.close();
   }
 );
