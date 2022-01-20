@@ -4,6 +4,7 @@ const async = require('async');
 const winston = require('winston');
 const mongoose = require('mongoose');
 const axios = require('axios').default;
+const req = require('express/lib/request');
 const Type = require(path.join(__dirname, '/models/type'));
 const Pokemon = require(path.join(__dirname, '/models/pokemon'));
 require('dotenv').config();
@@ -22,11 +23,11 @@ const logger = winston.createLogger({
   defaultMeta: { service: 'user-service' },
   transports: [
     new winston.transports.Console(),
-    new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
     new winston.transports.File({
-      filename: 'logs/pokemon.log',
-      level: 'pokemon',
+      filename: 'logs/error.log',
+      level: 'error',
     }),
+    new winston.transports.File({ filename: 'logs/info.log', level: 'info' }),
     // new winston.transports.File({ filename: 'logs/all.log' }),
   ],
 });
@@ -37,39 +38,44 @@ for (let i = 1; i < 19; i++) {
   endpoints.push(`https://pokeapi.co/api/v2/type/${i}`);
 }
 
-logger.info(chalk.red('red'));
-mongoose.connection.close();
-
-// async.waterfall(
-//   [
-//     function (callback) {
-//       Type.find({}).exec(callback);
-//     },
-//     function (types, callback) {
-//       axios
-//         .all(endpoints.map((endpoint) => axios.get(endpoint)))
-//         .then((data) => {
-//           data.forEach((type) => {
-//             const doubleDamageFrom =
-//               type.data.damage_relations.double_damage_from;
-//             // console.log(chalk.blue(type.data.name));
-//             console.log(doubleDamageFrom);
-//           });
-//           callback(null, types);
-//         })
-//         .catch(function (error) {
-//           callback(error);
-//         });
-//     },
-//     // function (callback) {
-//     //   // update each type with details
-//     // },
-//   ],
-//   function (err, result) {
-//     if (err) {
-//       logger.error(err);
-//     }
-//     // console.log(result);
-//     mongoose.connection.close();
-//   }
-// );
+async.waterfall(
+  [
+    function (callback) {
+      Type.find({}).exec(callback);
+    },
+    function (types, callback) {
+      axios
+        .all(endpoints.map((endpoint) => axios.get(endpoint)))
+        .then((data) => {
+          const typesData = data.map((type) => {
+            const base = type.data.damage_relations;
+            return (typeData = {
+              name: type.data.name,
+              doubleDamageFrom: base.double_damage_from,
+              doubleDamageTo: base.double_damage_to,
+              halfDamageFrom: base.half_damage_from,
+              halfDamageTo: base.half_damage_to,
+              noDamageFrom: base.no_damage_from,
+              noDamageTo: base.no_damage_to,
+            });
+          });
+          callback(null, { types, typesData });
+        })
+        .catch(function (error) {
+          callback(error);
+        });
+    },
+    function (data, callback) {
+      const { types, typesData } = data;
+      console.log(data);
+      callback(null);
+    },
+  ],
+  function (err, result) {
+    if (err) {
+      logger.error(err);
+    }
+    // console.log(result);
+    mongoose.connection.close();
+  }
+);

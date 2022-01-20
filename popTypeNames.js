@@ -36,6 +36,7 @@ async.waterfall(
   [
     function (callback) {
       let one = [];
+      // call all apis
       axios
         .all(endpoints.map((endpoint) => axios.get(endpoint)))
         .then((data) => {
@@ -49,6 +50,7 @@ async.waterfall(
         });
     },
     function (names, callback) {
+      // create array of model instance
       const types = names.map((name) => new Type({ name: name }));
       Type.insertMany(types, function (err, docs) {
         if (err) {
