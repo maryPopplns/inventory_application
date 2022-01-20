@@ -76,9 +76,9 @@ async.waterfall(
       //  update the documents
       async.eachSeries(
         types,
-        function updateObject(obj, done) {
-          Type.updateOne({ name: obj.name }, { new: 'USS Enterprise' });
-          done;
+        async function updateObject(obj, done) {
+          await Type.updateOne({ name: obj.name }, { new: 'test3' });
+          await done;
         },
         function allDone(err) {
           if (err) {
