@@ -8,8 +8,6 @@ const Type = require(path.join(__dirname, '/models/type'));
 const Pokemon = require(path.join(__dirname, '/models/pokemon'));
 require('dotenv').config();
 
-console.log(chalk.blue('hi'));
-
 // connect to mongo
 mongoose.connect(process.env.MONGO_STRING, {
   useNewUrlParser: true,
@@ -39,36 +37,39 @@ for (let i = 1; i < 19; i++) {
   endpoints.push(`https://pokeapi.co/api/v2/type/${i}`);
 }
 
-async.waterfall(
-  [
-    function (callback) {
-      Type.find({}).exec(callback);
-    },
-    function (types, callback) {
-      axios
-        .all(endpoints.map((endpoint) => axios.get(endpoint)))
-        .then((data) => {
-          data.forEach((type) => {
-            const doubleDamageFrom =
-              type.data.damage_relations.double_damage_from;
-            // console.log(chalk.blue(type.data.name));
-            console.log(doubleDamageFrom);
-          });
-          callback(null, types);
-        })
-        .catch(function (error) {
-          callback(error);
-        });
-    },
-    // function (callback) {
-    //   // update each type with details
-    // },
-  ],
-  function (err, result) {
-    if (err) {
-      logger.error(err);
-    }
-    // console.log(result);
-    mongoose.connection.close();
-  }
-);
+logger.info(chalk.red('red'));
+mongoose.connection.close();
+
+// async.waterfall(
+//   [
+//     function (callback) {
+//       Type.find({}).exec(callback);
+//     },
+//     function (types, callback) {
+//       axios
+//         .all(endpoints.map((endpoint) => axios.get(endpoint)))
+//         .then((data) => {
+//           data.forEach((type) => {
+//             const doubleDamageFrom =
+//               type.data.damage_relations.double_damage_from;
+//             // console.log(chalk.blue(type.data.name));
+//             console.log(doubleDamageFrom);
+//           });
+//           callback(null, types);
+//         })
+//         .catch(function (error) {
+//           callback(error);
+//         });
+//     },
+//     // function (callback) {
+//     //   // update each type with details
+//     // },
+//   ],
+//   function (err, result) {
+//     if (err) {
+//       logger.error(err);
+//     }
+//     // console.log(result);
+//     mongoose.connection.close();
+//   }
+// );
