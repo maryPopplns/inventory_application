@@ -4,8 +4,8 @@ const async = require('async');
 const winston = require('winston');
 const mongoose = require('mongoose');
 const axios = require('axios').default;
-const Type = require(path.join(__dirname, '/models/type'));
-const Pokemon = require(path.join(__dirname, '/models/pokemon'));
+const Type = require(path.join(__dirname, '../models/type'));
+const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 require('dotenv').config();
 
 // connect to mongo
