@@ -1,4 +1,5 @@
 const path = require('path');
+const chalk = require('chalk');
 const async = require('async');
 const winston = require('winston');
 const mongoose = require('mongoose');
@@ -65,7 +66,7 @@ async.waterfall(
     if (err) {
       logger.error(err);
     }
-    console.log(chalk.red(result));
+    console.log(chalk.green(result));
     mongoose.connection.close();
   }
 );

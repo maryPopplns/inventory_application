@@ -21,3 +21,16 @@ async.eachSeries(
     // this will be called when all the updates are done or an error occurred during the iteration
   }
 );
+
+// <------------------------------------------------>
+// (async () => {
+// await Type.updateOne(
+//   { name: 'normal' },
+//   { doubleDamageFrom: [types[1].id, types[2].id] }
+// );
+// await callback(null, 'success');
+// await Type.findOne({ name: 'normal' })
+//   .populate('doubleDamageFrom')
+//   .exec(callback);
+// })();
+// <------------------------------------------------>

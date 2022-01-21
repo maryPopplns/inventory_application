@@ -65,30 +65,25 @@ async.waterfall(
           callback(error);
         });
     },
-    // function (data, callback) {
-    //   // TODO loop through details and create objects that will be inserted into the next function
-    //   // TODO create object with name:id key:value pairs
-    // },
     function (data, callback) {
-      // TODO loop through the data in DB to find each
-      // TODO update
       const { types, typesDetails } = data;
+
       //  update the documents
-      async.eachSeries(
-        types,
-        async function updateObject(obj, done) {
-          await Type.updateOne({ name: obj.name }, { new: 'test3' });
-          await done;
-        },
-        function allDone(err) {
-          if (err) {
-            callback('updating: ' + err);
-          } else {
-            callback(null, 'success');
-          }
-          // this will be called when all the updates are done or an error occurred during the iteration
-        }
-      );
+      // async.eachSeries(
+      //   types,
+      //   async function updateObject(obj, done) {
+      //     // TODO test to see how to insert objIDs into the models
+      //     await Type.updateOne({ name: obj.name }, { new: 'test3' });
+      //     await done;
+      //   },
+      //   function allDone(err) {
+      //     if (err) {
+      //       callback('updating: ' + err);
+      //     } else {
+      //       callback(null, 'success');
+      //     }
+      //   }
+      // );
     },
   ],
   function (err, result) {
