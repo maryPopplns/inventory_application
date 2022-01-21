@@ -13,3 +13,4 @@
 ##### mongoose
 
 - validate function on schemas allow for each value in an array to be checked
+- created custom logic to populate DB with pokeapi data

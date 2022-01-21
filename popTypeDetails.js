@@ -79,8 +79,8 @@ async.waterfall(
         });
     },
     function (data, callback) {
+      // populate details with objectIDs
       const { ids, filteredResults } = data;
-      // loop through filtered results
       const results = filteredResults.map((result, i) => {
         const { name, details } = result;
         const populated = {};
@@ -91,53 +91,36 @@ async.waterfall(
         }
         return { name, details: populated };
       });
-      console.log(results);
-      callback(null, 'success');
+      callback(null, results);
     },
-    // function (types, callback) {
-    //   axios
-    //     .all(endpoints.map((endpoint) => axios.get(endpoint)))
-    //     .then((data) => {
-    //       const typesDetails = data.map((type) => {
-    //         const base = type.data.damage_relations;
-    //         return (typeData = {
-    //           name: type.data.name,
-    //           doubleDamageFrom: base.double_damage_from,
-    //           doubleDamageTo: base.double_damage_to,
-    //           halfDamageFrom: base.half_damage_from,
-    //           halfDamageTo: base.half_damage_to,
-    //           noDamageFrom: base.no_damage_from,
-    //           noDamageTo: base.no_damage_to,
-    //         });
-    //       });
-    //       callback(null, { types, typesDetails });
-    //     })
-    //     .catch(function (error) {
-    //       callback(error);
-    //     });
-    // },
-    // <------------------------------------------------>
-    //
-    // function (data, callback) {
-    //   const { types, typesDetails } = data;
-
-    //  update the documents
-    // async.eachSeries(
-    //   types,
-    //   async function updateObject(obj, done) {
-    //     // TODO test to see how to insert objIDs into the models
-    //     await Type.updateOne({ name: obj.name }, { new: 'test3' });
-    //     await done;
-    //   },
-    //   function allDone(err) {
-    //     if (err) {
-    //       callback('updating: ' + err);
-    //     } else {
-    //       callback(null, 'success');
-    //     }
-    //   }
-    // );
-    // },
+    function (results, callback) {
+      //  update the documents with populated fields
+      async.eachSeries(
+        results,
+        async function (obj, done) {
+          const { name, details } = await obj;
+          await Type.updateOne(
+            { name: name },
+            {
+              doubleDamageFrom: details.double_damage_from,
+              doubleDamageTo: details.double_damage_to,
+              halfDamageFrom: details.half_damage_from,
+              halfDamageTo: details.half_damage_to,
+              noDamageFrom: details.no_damage_from,
+              noDamageTo: details.no_damage_to,
+            }
+          );
+          await done;
+        },
+        function allDone(err) {
+          if (err) {
+            callback('updating' + err);
+          } else {
+            callback(null, 'success');
+          }
+        }
+      );
+    },
   ],
   function (err, result) {
     if (err) {
