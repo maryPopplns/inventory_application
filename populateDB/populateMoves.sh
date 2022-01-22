@@ -1,4 +1,4 @@
-for (( i=1; i<=11; i+=10 ))
+for (( i=1; i<=161; i+=10 ))
 do
    max=$(($i + 10))
    if [ $max -gt 166 ]; then

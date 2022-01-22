@@ -66,56 +66,65 @@ async.waterfall(
     function (ids, callback) {
       // [ API CALLS ]
       const endpoints = [];
+      if (argv.min === 1) {
+        console.log(chalk.red.bold('THIS WILL TAKE SOME TIME.....'), '\n');
+      }
       for (let i = argv.min; i < argv.max; i++) {
         console.log(chalk.cyan(i));
-        // endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
+        endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
       }
-      callback(null, 'success');
-      // Promise.all(endpoints)
-      //   .then((moves) => {
-      //     const data = moves.map((move) => {
-      //       const data = move.data;
-      //       return {
-      //         name: data.name,
-      //         effect: data.effect_entries[0].short_effect,
-      //         power: data.power,
-      //         pp: data.pp,
-      //         type: ids[data.type.name],
-      //       };
-      //     });
-      //     callback(null, data);
-      //   })
-      //   .catch((err) => {
-      //     logger.error(err);
-      //     mongoose.connection.close();
-      //   });
+      Promise.all(endpoints)
+        .then((moves) => {
+          const data = moves.map((move) => {
+            const data = move.data;
+            return {
+              name: data.name,
+              effect: data.effect_entries[0].short_effect,
+              power: data.power,
+              pp: data.pp,
+              type: ids[data.type.name],
+            };
+          });
+          callback(null, data);
+        })
+        .catch((err) => {
+          logger.error(err);
+          mongoose.connection.close();
+        });
     },
-    // function (data, callback) {
-    //   // [ CREATE/INSERT DOCUMENTS ]
-    //   const moves = data.map((move) => {
-    //     return new Move({
-    //       name: move.name,
-    //       effect: move.effect,
-    //       power: move.power,
-    //       pp: move.pp,
-    //       type: move.type,
-    //     });
-    //   });
-    //   Move.insertMany(moves, function (err, docs) {
-    //     if (err) {
-    //       callback(err);
-    //     } else {
-    //       callback(null, 'success');
-    //     }
-    //   });
-    // },
+    function (data, callback) {
+      // [ CREATE/INSERT DOCUMENTS ]
+      const moves = data.map((move) => {
+        return new Move({
+          name: move.name,
+          effect: move.effect,
+          power: move.power,
+          pp: move.pp,
+          type: move.type,
+        });
+      });
+      Move.insertMany(moves, function (err, docs) {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, 'success');
+        }
+      });
+    },
   ],
   function (err, result) {
     if (err) {
       logger.error(err);
       mongoose.connection.close();
     } else {
-      console.log(result);
+      argv.max === 166
+        ? console.log('\n', chalk.greenBright('100% COMPLETE'))
+        : console.log(
+            chalk.magenta(
+              `success ${((argv.max / 166) * 100).toFixed(2)}% complete`
+            )
+          );
+
       mongoose.connection.close();
     }
   }

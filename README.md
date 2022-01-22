@@ -19,3 +19,7 @@
 
 - learned the basics of bash scripting
   - loops, conditional statements, varibles
+
+##### git
+
+- learned how to create a branch on a branch (git branch [child branch] [parent branch])
