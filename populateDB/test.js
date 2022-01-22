@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const axios = require('axios').default;
 const req = require('express/lib/request');
 const Type = require(path.join(__dirname, '../models/type'));
-const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_STRING, {
@@ -36,22 +35,3 @@ const endpoints = [];
 for (let i = 1; i < 3; i++) {
   endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
 }
-
-(() => {
-  Promise.all(endpoints)
-    .then((moves) => {
-      //
-      moves.forEach((move) => {
-        if (Array.isArray(move.data.type)) {
-          console.log('yes');
-        }
-      });
-    })
-    .then(() => {
-      mongoose.connection.close();
-      console.log('closed');
-    })
-    .catch((err) => {
-      winston.error(err);
-    });
-})();

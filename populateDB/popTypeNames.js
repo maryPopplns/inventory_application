@@ -5,7 +5,6 @@ const winston = require('winston');
 const mongoose = require('mongoose');
 const axios = require('axios').default;
 const Type = require(path.join(__dirname, '../models/type'));
-const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 require('dotenv').config();
 
 // connect to mongo
@@ -23,10 +22,10 @@ const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({
-      filename: '/logs/error.log',
+      filename: '../logs/error.log',
       level: 'error',
     }),
-    // new winston.transports.File({ filename: 'logs/all.log' }),
+    new winston.transports.File({ filename: '..logs/all.log' }),
   ],
 });
 

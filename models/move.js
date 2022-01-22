@@ -6,8 +6,8 @@ const MoveSchema = new Schema({
   name: { type: String, required: true, maxLength: 20 },
   effect: String,
   power: Number,
-  PP: Number,
-  type: { type: Schema.Types.ObjectId, ref: 'Type', required: true },
+  pp: Number,
+  type: { type: Schema.Types.ObjectId, ref: 'Type' },
 });
 
 // Virtual for author's URL
