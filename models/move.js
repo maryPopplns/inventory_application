@@ -15,4 +15,4 @@ MoveSchema.virtual('url').get(function () {
   return '/move/' + this._id;
 });
 
-module.exports = mongoose.model('Move', TypesSchema);
+module.exports = mongoose.model('Move', MoveSchema);
