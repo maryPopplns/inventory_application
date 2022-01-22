@@ -36,32 +36,6 @@ const logger = winston.createLogger({
   ],
 });
 
-const endpoints = [];
-for (let i = 1; i < 3; i++) {
-  endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
-}
-
-// (() => {
-//   Promise.all(endpoints)
-//     .then((moves) => {
-//       return moves.map((move) => {
-//         const data = move.data;
-//         return {
-//           name: data.name,
-//           effect: data.effect_entries[0].short_effect,
-//           power: data.power,
-//           pp: data.pp,
-//           // type : tbd
-//         };
-//       });
-//     })
-//     .then((data) => console.log(data))
-//     .catch((err) => {
-//       logger.error(err);
-//       mongoose.connection.close();
-//     });
-// })();
-
 async.waterfall(
   [
     function (callback) {
@@ -81,6 +55,10 @@ async.waterfall(
       });
     },
     function (ids, callback) {
+      const endpoints = [];
+      for (let i = 1; i < 3; i++) {
+        endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
+      }
       Promise.all(endpoints)
         .then((moves) => {
           return moves.map((move) => {
