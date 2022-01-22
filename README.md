@@ -14,3 +14,8 @@
 
 - validate function on schemas allow for each value in an array to be checked
 - created custom logic to populate DB with pokeapi data
+
+##### bash
+
+- learned the basics of bash scripting
+  - loops, conditional statements, varibles

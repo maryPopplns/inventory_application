@@ -70,6 +70,7 @@ async.waterfall(
         console.log(chalk.cyan(i));
         // endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
       }
+      callback(null, 'success');
       // Promise.all(endpoints)
       //   .then((moves) => {
       //     const data = moves.map((move) => {

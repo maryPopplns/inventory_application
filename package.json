@@ -7,7 +7,7 @@
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=inventory-application:* npm run devstart",
     "-": "<------------------------------------------------------------------>",
-    "popmoves": "node populateDB/moves.js --min=1 --max=11",
+    "popmoves": "sh populateDB/populateMoves.sh",
     "poptypes": "node populateDB/popTypeNames.js && node populateDB/popTypeDetails.js",
     "git": "git add . && git commit && git push origin $(git rev-parse --abbrev-ref HEAD) && echo '\n' && echo $(tput setaf 2)'commited: ' $(tput setaf 1)$(date) && echo '\n'"
   },
