@@ -31,10 +31,27 @@ const logger = winston.createLogger({
   ],
 });
 
-(async () => {
-  const one = await Type.find({ name: 'normal' })
-    .populate('doubleDamageFrom')
-    .populate('doubleDamageTo');
-  await console.log(one[0]);
-  await mongoose.connection.close();
+const endpoints = [];
+// for (let i = 1; i < 166; i++) {
+for (let i = 1; i < 3; i++) {
+  endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
+}
+
+(() => {
+  Promise.all(endpoints)
+    .then((moves) => {
+      //
+      moves.forEach((move) => {
+        if (Array.isArray(move.data.type)) {
+          console.log('yes');
+        }
+      });
+    })
+    .then(() => {
+      mongoose.connection.close();
+      console.log('closed');
+    })
+    .catch((err) => {
+      winston.error(err);
+    });
 })();
