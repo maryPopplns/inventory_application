@@ -8,6 +8,7 @@
     "serverstart": "DEBUG=inventory-application:* npm run devstart",
     "-": "<------------------------------------------------------------------>",
     "popmoves": "sh populateDB/scripts/populateMoves.sh",
+    "poppokemon": "sh populateDB/scripts/populatePokemon.sh",
     "poptypes": "node populateDB/popTypeNames.js && node populateDB/popTypeDetails.js",
     "git": "git add . && git commit && git push origin $(git rev-parse --abbrev-ref HEAD) && echo '\n' && echo $(tput setaf 2)'commited: ' $(tput setaf 1)$(date) && echo '\n'"
   },
