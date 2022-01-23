@@ -12,9 +12,17 @@ let alignColorsAndTime = winston.format.combine(
   }),
   winston.format.printf(
     (info) =>
-      ` ${info.label}  ${info.timestamp}  ${info.level} : ${info.message}`
+      // ` ${info.label}  ${info.timestamp}  ${info.level} : ${info.message}`
+      `${info.level} : ${info.timestamp} : ${info.message}`
   )
 );
+
+winston.addColors({
+  info: 'bold blue', // fontStyle color
+  warn: 'italic yellow',
+  error: 'bold red',
+  debug: 'green',
+});
 
 const logger = winston.createLogger({
   level: 'debug',
@@ -25,6 +33,15 @@ const logger = winston.createLogger({
         alignColorsAndTime
       ),
     }),
+    new winston.transports.File({
+      filename: 'populateDB/logs/error.log',
+      level: 'error',
+    }),
+    new winston.transports.File({
+      filename: 'populateDB/logs/info.log',
+      level: 'info',
+    }),
+    new winston.transports.File({ filename: 'populateDB/logs/all.log' }),
   ],
 });
 

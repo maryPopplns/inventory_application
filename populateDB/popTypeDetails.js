@@ -1,12 +1,10 @@
-const chalk = require('chalk');
 const path = require('path');
+const chalk = require('chalk');
 const async = require('async');
 const winston = require('winston');
 const mongoose = require('mongoose');
 const axios = require('axios').default;
-const req = require('express/lib/request');
 const Type = require(path.join(__dirname, '../models/type'));
-const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 require('dotenv').config();
 
 // connect to mongo
@@ -81,7 +79,7 @@ async.waterfall(
     function (data, callback) {
       // populate details with objectIDs
       const { ids, filteredResults } = data;
-      const results = filteredResults.map((result, i) => {
+      const results = filteredResults.map((result) => {
         const { name, details } = result;
         const populated = {};
         for (const detail in details) {

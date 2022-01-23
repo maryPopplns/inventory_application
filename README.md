@@ -9,6 +9,7 @@
 ##### winston
 
 - use of the logger winston (transports, levels)
+- put logger config in seperate file
 
 ##### mongoose
 

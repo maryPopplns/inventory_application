@@ -55,7 +55,7 @@ async.waterfall(
     function (names, callback) {
       // create array of model instance
       const types = names.map((name) => new Type({ name: name, new: 'one' }));
-      Type.insertMany(types, function (err, docs) {
+      Type.insertMany(types, function (err) {
         if (err) {
           callback(err);
         } else {

@@ -1,7 +1,6 @@
 // [ MODELS ]
 const path = require('path');
 const Type = require(path.join(__dirname, '../models/type'));
-const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 const Move = require(path.join(__dirname, '../models/move'));
 // [ COMMAND LINE ]
 const chalk = require('chalk');
@@ -13,8 +12,6 @@ const argv = yargs(hideBin(process.argv)).argv;
 const async = require('async');
 const mongoose = require('mongoose');
 const axios = require('axios').default;
-const req = require('express/lib/request');
-const { endianness } = require('os');
 require('dotenv').config();
 
 // [ MONGO CONNECTION ]
@@ -103,7 +100,7 @@ async.waterfall(
           type: move.type,
         });
       });
-      Move.insertMany(moves, function (err, docs) {
+      Move.insertMany(moves, function (err) {
         if (err) {
           callback(err);
         } else {
@@ -112,7 +109,7 @@ async.waterfall(
       });
     },
   ],
-  function (err, result) {
+  function (err) {
     if (err) {
       logger.error(err);
       mongoose.connection.close();
