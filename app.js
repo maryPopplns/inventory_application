@@ -1,14 +1,15 @@
-const cookieParser = require('cookie-parser');
-const createError = require('http-errors');
-const mongoose = require('mongoose');
-const winston = require('winston');
-const express = require('express');
-const morgan = require('morgan');
+// [ DEP IMPORTS ]
 const path = require('path');
+const morgan = require('morgan');
+const express = require('express');
+const mongoose = require('mongoose');
+const createError = require('http-errors');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+// [ FILE IMPORTS ]
+const logger = require(path.join(__dirname, 'logger'));
+const indexRouter = require(path.join(__dirname, '/routes/index'));
+const usersRouter = require(path.join(__dirname, '/routes/users'));
 
 const app = express();
 // view engine setup
