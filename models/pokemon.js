@@ -14,6 +14,7 @@ const PokemonSchema = new Schema({
   },
   types: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
   images: { back: String, front: String },
+  // TODO email validation
 });
 
 // Virtual for author's URL

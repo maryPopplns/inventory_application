@@ -1,4 +1,4 @@
-// [ DEP IMPORTS ]
+// [ DEPENDENCIES ]
 const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
@@ -12,19 +12,20 @@ const indexRouter = require(path.join(__dirname, '/routes/index'));
 const usersRouter = require(path.join(__dirname, '/routes/users'));
 
 const app = express();
-// view engine setup
+
+// [ VIEW ENGINE SETUP ]
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// mongo connection
-
+// [ MONGO CONNECTION ]
 mongoose.connect(process.env.MONGO_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('error', (err) => logger.error(err));
 
+// [ REQUESTS LOGGER ]
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,12 +35,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
+// [ 404 ROUTE ]
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// [ ERROR HANDLER ]
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
