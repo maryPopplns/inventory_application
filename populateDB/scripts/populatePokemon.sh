@@ -4,6 +4,5 @@ do
    if [ $max -gt 152 ]; then
    max=152
    fi
-   echo $i
-   echo $max
+   node populateDB/pokemon.js --min=$i --max=$max
 done

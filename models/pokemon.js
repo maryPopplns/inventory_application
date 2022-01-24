@@ -4,13 +4,16 @@ const Schema = mongoose.Schema;
 
 const PokemonSchema = new Schema({
   name: { type: String, required: true, maxLength: 20 },
-  id: Number,
+  pokeid: Number,
   height: Number,
   weight: Number,
   moves: [{ type: Schema.Types.ObjectId, ref: 'Move' }],
-  stats: [{ name: String, baseStat: Number }],
+  stats: {
+    type: Map,
+    of: Number,
+  },
   types: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
-  images: [String],
+  images: { back: String, front: String },
 });
 
 // Virtual for author's URL

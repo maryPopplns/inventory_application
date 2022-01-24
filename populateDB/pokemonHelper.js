@@ -23,9 +23,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 async.waterfall(
   [
     function (callback) {
+      // [ QUERY TYPES ]
       Type.find({}).select('name').exec(callback);
     },
     function (types, callback) {
+      // [ QUERY MOVES ]
       Move.find({})
         .select('name')
         .exec((err, moves) => {
@@ -37,6 +39,7 @@ async.waterfall(
         });
     },
     function (types, moves, callback) {
+      // [ CREATE {NAME:ID} OBJECTS ]
       const typeIds = {};
       const moveIds = {};
       types.forEach((type) => {
@@ -49,6 +52,7 @@ async.waterfall(
     },
   ],
   function (err, result) {
+    // [ SAVE DATA TO ids.json ]
     if (err) {
       logger.error(err);
       mongoose.connection.close();

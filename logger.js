@@ -13,7 +13,7 @@ let alignColorsAndTime = winston.format.combine(
   winston.format.printf(
     (info) =>
       // ` ${info.label}  ${info.timestamp}  ${info.level} : ${info.message}`
-      `${info.level} : ${info.timestamp} : ${info.message}`
+      `[ ${info.timestamp} ] [ ${info.level} ] : \n${info.message}\n`
   )
 );
 
