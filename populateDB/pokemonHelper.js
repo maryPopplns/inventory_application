@@ -19,11 +19,50 @@ mongoose.connect(process.env.MONGO_STRING, {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-const moveIds = {};
-const typeIds = {};
-
-// use async parallel to make the calls to mongo
-// moves / types
+async.waterfall(
+  [
+    function (callback) {
+      Type.find({}).select('name').exec(callback);
+    },
+    function (types, callback) {
+      Move.find({})
+        .select('name')
+        .exec((err, moves) => {
+          if (err) {
+            callback(err);
+          } else {
+            callback(null, types, moves);
+          }
+        });
+    },
+    function (types, moves, callback) {
+      const typeIds = {};
+      const moveIds = {};
+      types.forEach((type) => {
+        typeIds[type.name] = type.id;
+      });
+      moves.forEach((move) => {
+        moveIds[move.name] = move.id;
+      });
+      callback(null, typeIds, moveIds);
+    },
+    function (typeIds, moveIds, callback) {
+      console.log(moveIds);
+      console.log('\n');
+      console.log(typeIds);
+      callback(null, 'success');
+    },
+  ],
+  function (err, result) {
+    if (err) {
+      logger.error(err);
+      mongoose.connection.close();
+    } else {
+      console.log(result);
+      mongoose.connection.close();
+    }
+  }
+);
 
 // TODO query types and moves
 //  - write the data to a json file
