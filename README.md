@@ -4,7 +4,11 @@
 
 ![inventory models](public/images/pokeinventory_schema.png)
 
-### Learned
+#### style guide
+
+![style guide](public/images/styleguide.png)
+
+### learned
 
 ##### winston
 
@@ -14,7 +18,7 @@
 ##### mongoose
 
 - validate function on schemas allow for each value in an array to be checked
-- created custom logic to populate DB with pokeapi data
+- created custom logic to populate db with pokeapi data
 
 ##### bash
 
