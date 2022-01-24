@@ -1,3 +1,4 @@
+const fs = require('fs');
 const chalk = require('chalk');
 const path = require('path');
 const async = require('async');
@@ -29,9 +30,3 @@ const logger = winston.createLogger({
     // new winston.transports.File({ filename: 'logs/all.log' }),
   ],
 });
-
-const endpoints = [];
-// for (let i = 1; i < 166; i++) {
-for (let i = 1; i < 3; i++) {
-  endpoints.push(axios.get(`https://pokeapi.co/api/v2/move/${i}`));
-}

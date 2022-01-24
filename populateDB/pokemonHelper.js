@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const async = require('async');
 const mongoose = require('mongoose');
@@ -44,13 +45,7 @@ async.waterfall(
       moves.forEach((move) => {
         moveIds[move.name] = move.id;
       });
-      callback(null, typeIds, moveIds);
-    },
-    function (typeIds, moveIds, callback) {
-      console.log(moveIds);
-      console.log('\n');
-      console.log(typeIds);
-      callback(null, 'success');
+      callback(null, { typeIds, moveIds });
     },
   ],
   function (err, result) {
@@ -58,7 +53,14 @@ async.waterfall(
       logger.error(err);
       mongoose.connection.close();
     } else {
-      console.log(result);
+      const { typeIds, moveIds } = result;
+      const data = JSON.stringify({ moveIds, typeIds });
+      fs.writeFile('./populateDB/ids.json', data, (err) => {
+        if (err) logger.error(err);
+        else {
+          logger.info('successfully wrote to ids.json');
+        }
+      });
       mongoose.connection.close();
     }
   }
