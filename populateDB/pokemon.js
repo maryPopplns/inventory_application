@@ -1,3 +1,7 @@
+const async = require('async');
+const mongoose = require('mongoose');
+const axios = require('axios').default;
+require('dotenv').config();
 // [ MODELS ]
 const path = require('path');
 const Type = require(path.join(__dirname, '../models/type'));
@@ -10,11 +14,6 @@ const logger = require(path.join(__dirname, '../logger'));
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const argv = yargs(hideBin(process.argv)).argv;
-
-const async = require('async');
-const mongoose = require('mongoose');
-const axios = require('axios').default;
-require('dotenv').config();
 
 // [ MONGO CONNECTION ]
 mongoose.connect(process.env.MONGO_STRING, {

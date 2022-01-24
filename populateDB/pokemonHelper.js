@@ -65,7 +65,3 @@ async.waterfall(
     }
   }
 );
-
-// TODO query types and moves
-//  - write the data to a json file
-// TODO makes objects {type: id}  {move: id}
