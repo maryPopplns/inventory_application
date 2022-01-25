@@ -6,6 +6,8 @@ const winston = require('winston');
 const mongoose = require('mongoose');
 const axios = require('axios').default;
 const req = require('express/lib/request');
+const Pokemon = require('../models/pokemon');
+const Move = require('../models/move');
 const Type = require(path.join(__dirname, '../models/type'));
 require('dotenv').config();
 
@@ -30,3 +32,24 @@ const logger = winston.createLogger({
     // new winston.transports.File({ filename: 'logs/all.log' }),
   ],
 });
+
+Pokemon.find({ name: 'charizard' })
+  .populate('moves')
+  .exec((err, results) => {
+    if (err) {
+      logger.error('error' + err);
+      mongoose.connection.close();
+    }
+    const moves = results[0].moves;
+    const filtered = moves
+      .map(({ power, name }) => {
+        return {
+          name,
+          power,
+        };
+      })
+      .filter((move) => move.power !== null);
+    const sorted = filtered.sort((a, b) => a.power - b.power).reverse();
+    console.log(sorted);
+    mongoose.connection.close();
+  });

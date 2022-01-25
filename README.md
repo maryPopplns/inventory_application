@@ -8,6 +8,10 @@
 
 ![style guide](public/images/styleguide.png)
 
+#### home page
+
+![style guide](public/images/homepage.png)
+
 ### learned
 
 ##### winston
