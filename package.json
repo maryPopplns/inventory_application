@@ -10,9 +10,10 @@
     "--": "<---------------[ POPULATE DB ]-------------------------------------->",
     "popmoves": "sh populateDB/scripts/populateMoves.sh",
     "poppokemon": "sh populateDB/scripts/populatePokemon.sh",
+    "popall": "npm run poptypes && npm run popmoves && npm run poppokemon",
     "poptypes": "node populateDB/popTypeNames.js && node populateDB/popTypeDetails.js",
     "---": "<--------------[ MISC ]--------------------------------------------->",
-    "format": "npx prettier --write '**/*.pug'",
+    "babel": "npx babel src --out-dir public",
     "sass": "sass --watch sass:public/stylesheets",
     "git": "git add . && git commit && git push origin $(git rev-parse --abbrev-ref HEAD) && echo '\n' && echo $(tput setaf 2)'commited: ' $(tput setaf 1)$(date) && echo '\n'"
   },
@@ -36,6 +37,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
     "chalk": "^4.1.2",
     "eslint": "^8.7.0"
   }
