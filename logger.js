@@ -13,7 +13,7 @@ let alignColorsAndTime = winston.format.combine(
   winston.format.printf(
     (info) =>
       // ` ${info.label}  ${info.timestamp}  ${info.level} : ${info.message}`
-      `[ ${info.timestamp} ] [ ${info.level} ] : \n${info.message}\n`
+      `[ ${info.timestamp} ][ ${info.level} ] : ${info.message}`
   )
 );
 
@@ -24,7 +24,7 @@ winston.addColors({
   debug: 'green',
 });
 
-const logger = winston.createLogger({
+exports.db = winston.createLogger({
   level: 'debug',
   transports: [
     new winston.transports.Console({
@@ -45,4 +45,23 @@ const logger = winston.createLogger({
   ],
 });
 
-module.exports = logger;
+exports.logger = winston.createLogger({
+  level: 'debug',
+  transports: [
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.colorize(),
+        alignColorsAndTime
+      ),
+    }),
+    new winston.transports.File({
+      filename: 'logs/error.log',
+      level: 'error',
+    }),
+    new winston.transports.File({
+      filename: 'logs/info.log',
+      level: 'info',
+    }),
+    new winston.transports.File({ filename: 'logs/all.log' }),
+  ],
+});

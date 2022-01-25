@@ -10,7 +10,7 @@ const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 const Move = require(path.join(__dirname, '../models/move'));
 // [ COMMAND LINE ]
 const chalk = require('chalk');
-const logger = require(path.join(__dirname, '../logger'));
+const { db } = require(path.join(__dirname, '../logger'));
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const argv = yargs(hideBin(process.argv)).argv;
