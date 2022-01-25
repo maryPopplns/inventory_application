@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 // [ FILE IMPORTS ]
 const logger = require(path.join(__dirname, 'logger'));
-const indexRouter = require(path.join(__dirname, '/routes/index'));
+const homeRouter = require(path.join(__dirname, '/routes/home'));
 const usersRouter = require(path.join(__dirname, '/routes/users'));
 
 const app = express();
@@ -25,14 +25,14 @@ mongoose.connect(process.env.MONGO_STRING, {
 var db = mongoose.connection;
 db.on('error', (err) => logger.error(err));
 
-// [ REQUESTS LOGGER ]
+// [ MIDDLWARE ]
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', homeRouter);
 app.use('/users', usersRouter);
 
 // [ 404 ROUTE ]
