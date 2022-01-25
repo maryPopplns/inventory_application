@@ -27,6 +27,7 @@ db.on('error', (err) => logger.error(err));
 
 // [ MIDDLWARE ]
 app.use(morgan('dev'));
+// TODO log all requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
