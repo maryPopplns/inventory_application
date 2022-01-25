@@ -53,6 +53,11 @@ async.waterfall(
             const filteredImages = {
               back: sprites.back_shiny,
               front: sprites.front_shiny,
+              animation:
+                sprites.versions['generation-v']['black-white'].animated[
+                  'front_default'
+                ],
+              large: sprites.other['official-artwork']['front_default'],
             };
 
             return {
@@ -71,7 +76,7 @@ async.waterfall(
         .catch((err) => logger.err(err));
     },
     function (filteredData, callback) {
-      // TODO chaging stats to an object with stat:num key value pairs
+      // [ CREATE/INSERT DOCUMENTS ]
       const pokemonDocuments = filteredData.map((pokemonData) => {
         const {
           name,

@@ -13,8 +13,8 @@ const PokemonSchema = new Schema({
     of: Number,
   },
   types: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
-  images: { back: String, front: String },
-  // TODO email validation
+  images: { back: String, front: String, animation: String, large: String },
+  // TODO url validation
 });
 
 // Virtual for author's URL
