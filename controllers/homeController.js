@@ -7,7 +7,7 @@ const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 exports.home_get = function (req, res, next) {
   // [ QUERY/FILTER POKEMON DATA ]
   Pokemon.find({})
-    .limit(3)
+    // .limit(3)
     .select('name images.animation')
     .then((pokemon) => {
       const filteredPokemonData = pokemon.map((pokemon) => {

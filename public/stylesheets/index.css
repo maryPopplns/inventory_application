@@ -91,6 +91,7 @@ main ul li a {
   width: 100%;
 }
 main ul li a div h1 {
+  margin-top: 5px;
   color: black;
   font-family: "Open Sans";
 }
