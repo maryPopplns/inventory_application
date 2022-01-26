@@ -32,3 +32,7 @@
 ##### git
 
 - learned how to create a branch on a branch (git branch [child branch] [parent branch])
+
+##### css
+
+- custom font path src is relative to the css file
