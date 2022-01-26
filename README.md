@@ -6,7 +6,7 @@
 
 #### style guide
 
-![style guide](public/images/styleguide.png)
+![style guide](public/images/styleGuide.png)
 
 #### home page
 
