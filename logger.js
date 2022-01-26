@@ -62,6 +62,9 @@ exports.logger = winston.createLogger({
       filename: 'logs/info.log',
       level: 'info',
     }),
-    new winston.transports.File({ filename: 'logs/all.log' }),
+    new winston.transports.File({
+      filename: 'logs/debug.log',
+      level: 'debug',
+    }),
   ],
 });

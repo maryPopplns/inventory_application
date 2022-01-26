@@ -1,4 +1,12 @@
 extends layout
 
 block content
-  //- h1 homepage
+  main
+    ul
+      each val in data
+        li
+          a(href='/pokemon/' + val.id)
+            div
+              h1=val.name
+            div
+              img(src=val.animation)

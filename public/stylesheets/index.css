@@ -1,3 +1,7 @@
+:root {
+  font-size: 16px;
+}
+
 @font-face {
   font-family: "Mochiy Pop One";
   src: url("../fonts/MochiyPopOne-Regular.ttf") format("truetype");
@@ -6,6 +10,10 @@
   font-family: "Open Sans";
   src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
+body {
+  position: relative;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -15,40 +23,68 @@ header {
   background: linear-gradient(90deg, #db2d2d 0%, #cc4d4d 50%, #db2d2d 100%);
 }
 header img {
-  width: 15em;
+  width: 15rem;
   margin-left: 3px;
 }
 header nav ul {
   display: flex;
   justify-content: space-between;
-  width: 22em;
+  width: 22rem;
   margin-right: 5px;
 }
 header nav ul li a {
   font-family: "Mochiy Pop One";
   text-decoration: none;
-  font-size: 1.4em;
+  font-size: 1.4rem;
   color: black;
-}
-header nav ul li a:hover {
-  font-size: 1.5em;
 }
 
 aside {
-  height: calc(100vh - 4em);
-  width: 10em;
+  height: calc(100vh - 4rem);
+  width: 10rem;
   background: linear-gradient(180deg, #4a57b9 0%, #6e77c2 75%);
 }
 aside nav {
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
 }
 aside nav ul {
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 aside nav ul li {
-  padding: 0.5em 0;
+  padding: 0.5rem 0;
   font-family: "Mochiy Pop One";
-  font-size: 0.8em;
+  font-size: 0.8rem;
+}
+
+main {
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 10rem);
+  background-color: #ffdde3;
+  overflow-y: scroll;
+}
+main ul {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+main ul li {
+  display: flex;
+  justify-content: center;
+  align-self: top;
+  height: 7rem;
+  width: 10rem;
+  margin: 1rem;
+  background-color: #ffa2a2;
+}
+main ul li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */

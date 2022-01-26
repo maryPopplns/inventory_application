@@ -1,3 +1,8 @@
+:root {
+  font-size: 16px;
+}
+
+// [ CUSTOM FONTS ]
 @font-face {
   font-family: 'Mochiy Pop One';
   src: url('../fonts/MochiyPopOne-Regular.ttf') format('truetype');
@@ -6,6 +11,8 @@
   font-family: 'Open Sans';
   src: url('../fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
 }
+
+// [ VARIABLES ]
 $mochiy: 'Mochiy Pop One';
 $open: 'Open Sans';
 $white: #fcfcfc;
@@ -15,6 +22,10 @@ $darkblue: #4a57b9;
 $lightblue: #6e77c2;
 $yellow: #ffde00;
 
+// [ LAYOUT ]
+body {
+  position: relative;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -23,39 +34,71 @@ header {
   height: 4rem;
   background: linear-gradient(90deg, $darkred 0%, $lightred 50%, $darkred 100%);
   img {
-    width: 15em;
+    width: 15rem;
     margin-left: 3px;
   }
   nav ul {
     display: flex;
     justify-content: space-between;
-    width: 22em;
+    width: 22rem;
     margin-right: 5px;
   }
   nav ul li a {
     font-family: $mochiy;
     text-decoration: none;
-    font-size: 1.4em;
+    font-size: 1.4rem;
     color: black;
   }
-  nav ul li a:hover {
-    font-size: 1.5em;
-  }
+  // nav ul li a:hover {
+  //   font-size: 1.5rem;
+  // }
 }
 
 aside {
-  height: calc(100vh - 4em);
-  width: 10em;
+  height: calc(100vh - 4rem);
+  width: 10rem;
   background: linear-gradient(180deg, $darkblue 0%, $lightblue 75%);
   nav {
-    padding-left: 0.5em;
+    padding-left: 0.5rem;
   }
   nav ul {
-    padding: 1em 0;
+    padding: 1rem 0;
   }
   nav ul li {
-    padding: 0.5em 0;
+    padding: 0.5rem 0;
     font-family: $mochiy;
-    font-size: 0.8em;
+    font-size: 0.8rem;
+  }
+}
+
+// [ HOME ]
+main {
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 10rem);
+  background-color: #ffdde3;
+  overflow-y: scroll;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+  }
+  ul li {
+    display: flex;
+    justify-content: center;
+    align-self: top;
+    height: 7rem;
+    width: 10rem;
+    margin: 1rem;
+    background-color: #ffa2a2;
+  }
+  ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 }
