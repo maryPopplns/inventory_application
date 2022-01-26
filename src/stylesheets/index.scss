@@ -9,6 +9,53 @@
 $mochiy: 'Mochiy Pop One';
 $open: 'Open Sans';
 $white: #fcfcfc;
-$red: #cc0000;
-$blue: #3b4cca;
+$darkred: #db2d2d;
+$lightred: #cc4d4d;
+$darkblue: #4a57b9;
+$lightblue: #6e77c2;
 $yellow: #ffde00;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  background: linear-gradient(90deg, $darkred 0%, $lightred 50%, $darkred 100%);
+  img {
+    width: 15em;
+    margin-left: 3px;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+    width: 22em;
+    margin-right: 5px;
+  }
+  nav ul li a {
+    font-family: $mochiy;
+    text-decoration: none;
+    font-size: 1.4em;
+    color: black;
+  }
+  nav ul li a:hover {
+    font-size: 1.5em;
+  }
+}
+
+aside {
+  height: calc(100vh - 4em);
+  width: 10em;
+  background: linear-gradient(180deg, $darkblue 0%, $lightblue 75%);
+  nav {
+    padding-left: 0.5em;
+  }
+  nav ul {
+    padding: 1em 0;
+  }
+  nav ul li {
+    padding: 0.5em 0;
+    font-family: $mochiy;
+    font-size: 0.8em;
+  }
+}
