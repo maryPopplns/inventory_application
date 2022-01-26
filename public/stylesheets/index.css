@@ -30,7 +30,7 @@ header nav ul {
   display: flex;
   justify-content: space-between;
   width: 22rem;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 header nav ul li a {
   font-family: "Mochiy Pop One";
@@ -63,11 +63,12 @@ main {
   height: calc(100vh - 4rem);
   width: calc(100vw - 10rem);
   background-color: #ffdde3;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 main ul {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   height: 100%;
   width: 100%;
 }
@@ -84,7 +85,9 @@ main ul li a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   height: 100%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */
