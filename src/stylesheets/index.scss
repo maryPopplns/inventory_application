@@ -101,7 +101,12 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-decoration: none;
     height: 100%;
     width: 100%;
+  }
+  ul li a div h1 {
+    color: black;
+    font-family: $open;
   }
 }

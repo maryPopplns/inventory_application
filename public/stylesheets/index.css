@@ -86,8 +86,13 @@ main ul li a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
   height: 100%;
   width: 100%;
+}
+main ul li a div h1 {
+  color: black;
+  font-family: "Open Sans";
 }
 
 /*# sourceMappingURL=index.css.map */
