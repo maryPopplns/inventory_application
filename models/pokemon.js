@@ -17,7 +17,7 @@ const PokemonSchema = new Schema({
   // TODO url validation
 });
 
-// Virtual for author's URL
+// [ ROUTE URL ]
 PokemonSchema.virtual('url').get(function () {
   return '/pokemon/' + this._id;
 });

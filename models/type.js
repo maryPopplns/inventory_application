@@ -12,7 +12,7 @@ const TypesSchema = new Schema({
   noDamageTo: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
 });
 
-// Virtual for author's URL
+// [ ROUTE URL ]
 TypesSchema.virtual('url').get(function () {
   return '/type/' + this._id;
 });
