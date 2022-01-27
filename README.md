@@ -8,6 +8,8 @@
 
 ![style guide](public/images/styleGuide.png)
 
+<!-- TODO fix colors -->
+
 #### home page
 
 ![style guide](public/images/homepage.png)
