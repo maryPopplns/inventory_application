@@ -135,9 +135,6 @@ main.pokemon {
     border: 1px solid black;
     margin: 1rem;
   }
-  ul li div img {
-    width: 10rem;
-  }
   ul li header {
     display: flex;
     justify-content: space-between;
@@ -152,5 +149,13 @@ main.pokemon {
     h1.name {
       font-size: 1.5rem;
     }
+  }
+  ul li div img {
+    width: 10rem;
+  }
+  ul li div.move {
+    height: 10rem;
+    width: 20rem;
+    border: 1px solid black;
   }
 }

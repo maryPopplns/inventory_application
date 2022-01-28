@@ -16,6 +16,7 @@ exports.pokemon_get = function (req, res, next) {
           .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
           .join('');
         const move = moves.sort((a, b) => b.power - a.power)[0];
+        logger.debug(move);
         const image = images.large;
         return {
           name: nameCap,
