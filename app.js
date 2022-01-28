@@ -9,7 +9,7 @@ require('dotenv').config();
 // [ FILE IMPORTS ]
 const { logger } = require(path.join(__dirname, 'logger'));
 const homeRouter = require(path.join(__dirname, '/routes/home'));
-const usersRouter = require(path.join(__dirname, '/routes/users'));
+const pokemonRouter = require(path.join(__dirname, '/routes/pokemon'));
 
 const app = express();
 
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 logger.info('this is the error');
 
 app.use('/', homeRouter);
-app.use('/users', usersRouter);
+app.use('/pokemon', pokemonRouter);
 
 // [ 404 ROUTE ]
 app.use(function (req, res, next) {

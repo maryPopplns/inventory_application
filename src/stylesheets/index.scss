@@ -26,7 +26,7 @@ $yellow: #ffde00;
 body {
   position: relative;
 }
-header {
+header.navHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,7 +72,7 @@ aside {
 }
 
 // [ HOME ]
-main {
+main.home {
   position: absolute;
   top: 4rem;
   left: 10rem;
@@ -84,8 +84,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    height: 100%;
-    width: 100%;
   }
   ul li {
     display: flex;
@@ -109,5 +107,50 @@ main {
     margin-top: 5px;
     color: black;
     font-family: $open;
+  }
+}
+
+main.pokemon {
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 10rem);
+  background-color: #ffdde3;
+  overflow-y: auto;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    // height: 100%;
+    // width: 100%;
+  }
+  ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 25rem;
+    width: 20rem;
+    border: 1px solid black;
+    margin: 1rem;
+  }
+  ul li div img {
+    width: 10rem;
+  }
+  ul li header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2px;
+    margin-bottom: 1rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    h1 {
+      font-family: $open;
+    }
+    h1.name {
+      font-size: 1.5rem;
+    }
   }
 }

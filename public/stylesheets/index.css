@@ -14,7 +14,7 @@ body {
   position: relative;
 }
 
-header {
+header.navHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,17 +22,17 @@ header {
   height: 4rem;
   background: linear-gradient(90deg, #db2d2d 0%, #cc4d4d 50%, #db2d2d 100%);
 }
-header img {
+header.navHeader img {
   width: 15rem;
   margin-left: 3px;
 }
-header nav ul {
+header.navHeader nav ul {
   display: flex;
   justify-content: space-between;
   width: 22rem;
   margin-right: 10px;
 }
-header nav ul li a {
+header.navHeader nav ul li a {
   font-family: "Mochiy Pop One";
   text-decoration: none;
   font-size: 1.4rem;
@@ -56,7 +56,7 @@ aside nav ul li {
   font-size: 0.8rem;
 }
 
-main {
+main.home {
   position: absolute;
   top: 4rem;
   left: 10rem;
@@ -65,14 +65,12 @@ main {
   background-color: #ffdde3;
   overflow-y: auto;
 }
-main ul {
+main.home ul {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  height: 100%;
-  width: 100%;
 }
-main ul li {
+main.home ul li {
   display: flex;
   justify-content: center;
   align-self: top;
@@ -81,7 +79,7 @@ main ul li {
   margin: 1rem;
   background-color: #ffa2a2;
 }
-main ul li a {
+main.home ul li a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -90,10 +88,52 @@ main ul li a {
   height: 100%;
   width: 100%;
 }
-main ul li a div h1 {
+main.home ul li a div h1 {
   margin-top: 5px;
   color: black;
   font-family: "Open Sans";
+}
+
+main.pokemon {
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 10rem);
+  background-color: #ffdde3;
+  overflow-y: auto;
+}
+main.pokemon ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+main.pokemon ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25rem;
+  width: 20rem;
+  border: 1px solid black;
+  margin: 1rem;
+}
+main.pokemon ul li div img {
+  width: 10rem;
+}
+main.pokemon ul li header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  margin-bottom: 1rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+}
+main.pokemon ul li header h1 {
+  font-family: "Open Sans";
+}
+main.pokemon ul li header h1.name {
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=index.css.map */

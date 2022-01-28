@@ -20,8 +20,8 @@ mongoose.connect(process.env.MONGO_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+var db1 = mongoose.connection;
+db1.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 async.waterfall(
   [
@@ -73,7 +73,7 @@ async.waterfall(
           });
           callback(null, filteredData);
         })
-        .catch((err) => logger.err(err));
+        .catch((err) => db.err(err));
     },
     function (filteredData, callback) {
       // [ CREATE/INSERT DOCUMENTS ]
@@ -111,10 +111,10 @@ async.waterfall(
   ],
   function (err, results) {
     if (err) {
-      logger.error(err);
+      db.error(err);
       mongoose.connection.close();
     } else {
-      logger.info(results);
+      db.info(results);
       mongoose.connection.close();
     }
   }

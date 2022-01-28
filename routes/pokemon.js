@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
 const router = express.Router();
-const { home_get } = require(path.join(
+const { pokemon_get } = require(path.join(
   __dirname,
-  '../controllers/homeController'
+  '../controllers/pokemonController'
 ));
 
-// [ GET HOME ]
-router.get('/', home_get);
+// [ GET POKEMON ]
+router.get('/', pokemon_get);
 
 module.exports = router;

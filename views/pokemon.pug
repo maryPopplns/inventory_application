@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  main.pokemon
+    ul
+      each val in data
+        li
+          header
+            h1.name=val.name
+            h1.hp=val.stats.hp
+          div
+            img(src=val.image)
