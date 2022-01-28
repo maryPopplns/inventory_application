@@ -73,8 +73,7 @@ aside {
   }
 }
 
-// [ HOME ROUTE ]
-main.home {
+@mixin mainContent {
   position: absolute;
   top: 4rem;
   left: 10rem;
@@ -82,6 +81,11 @@ main.home {
   width: calc(100vw - 10rem);
   background-color: #ffdde3;
   overflow-y: auto;
+}
+
+// [ HOME ROUTE ]
+main.home {
+  @include mainContent();
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -114,13 +118,7 @@ main.home {
 
 // [ POKEMON ROUTE ]
 main.pokemon {
-  position: absolute;
-  top: 4rem;
-  left: 10rem;
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
-  background-color: #ffdde3;
-  overflow-y: auto;
+  @include mainContent();
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -187,4 +185,12 @@ main.pokemon {
       }
     }
   }
+}
+
+main.moves {
+  @include mainContent();
+}
+
+main.error {
+  @include mainContent();
 }

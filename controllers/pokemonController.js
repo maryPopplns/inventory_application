@@ -5,9 +5,8 @@ const Move = require(path.join(__dirname, '../models/move'));
 const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 
 exports.pokemon_get = function (req, res, next) {
-  // TODO query pokmon data
+  // [ QUERY/FILTER POKEMON DATA ]
   Pokemon.find({})
-    // .limit(10)
     .populate('moves')
     .then((pokemon) => {
       const filteredPokemonData = pokemon.map((pokemon) => {
@@ -44,7 +43,6 @@ exports.pokemon_get = function (req, res, next) {
             second: moves[ranMoves[1]],
             third: moves[ranMoves[2]],
           },
-          // TODO randomize moves
           image,
           stats,
         };
@@ -52,5 +50,5 @@ exports.pokemon_get = function (req, res, next) {
       // [ RENDER CARDS ]
       res.render('pokemon', { data: filteredPokemonData });
     })
-    .catch((err) => logger.error('error' + err));
+    .catch((err) => logger.error(err));
 };

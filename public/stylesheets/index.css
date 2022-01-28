@@ -182,4 +182,24 @@ main.pokemon ul li a div.moves div.third div.effect p:nth-child(2) {
   font-family: "Open Sans Bold";
 }
 
+main.moves {
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 10rem);
+  background-color: #ffdde3;
+  overflow-y: auto;
+}
+
+main.error {
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 10rem);
+  background-color: #ffdde3;
+  overflow-y: auto;
+}
+
 /*# sourceMappingURL=index.css.map */
