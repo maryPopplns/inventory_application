@@ -15,7 +15,7 @@ exports.pokemon_get = function (req, res, next) {
         const nameCap = Array.from(name)
           .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
           .join('');
-        const move = moves.sort((a, b) => b.power - a.power)[0];
+        const move = moves.sort((a, b) => b.power - a.power);
         logger.debug(move);
         const image = images.large;
         return {
@@ -23,7 +23,7 @@ exports.pokemon_get = function (req, res, next) {
           pokeid,
           height,
           weight,
-          move,
+          moves: { first: move[0], second: move[1] },
           image,
           stats,
         };

@@ -11,6 +11,11 @@ block content
           div
             img(src=val.image)
           div.move
-            p=val.move.name
-            p=val.move.effect
-            p=val.move.power
+            p=val.moves.first.name
+            div
+              p=val.moves.first.effect
+              p=val.moves.first.power
+            p=val.moves.second.name
+            div
+              p=val.moves.second.effect
+              p=val.moves.second.power
