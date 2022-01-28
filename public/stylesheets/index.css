@@ -116,7 +116,7 @@ main.pokemon ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 27rem;
+  height: 29rem;
   width: 20rem;
   text-decoration: none;
   color: black;
@@ -145,8 +145,8 @@ main.pokemon ul li a div img {
 main.pokemon ul li a div.moves {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: calc(16rem - 26px);
+  justify-content: center;
+  height: calc(18rem - 26px);
   width: 20rem;
 }
 main.pokemon ul li a div.moves div.first,
@@ -156,6 +156,7 @@ main.pokemon ul li a div.moves div.third {
   flex-direction: column;
   align-items: center;
   font-family: "Open Sans";
+  margin: 0.5rem 0;
 }
 main.pokemon ul li a div.moves div.first div.name,
 main.pokemon ul li a div.moves div.second div.name,
@@ -167,6 +168,7 @@ main.pokemon ul li a div.moves div.first div.effect,
 main.pokemon ul li a div.moves div.second div.effect,
 main.pokemon ul li a div.moves div.third div.effect {
   display: flex;
+  justify-content: space-between;
   margin: 0 0.25rem;
 }
 main.pokemon ul li a div.moves div.first div.effect p:nth-child(1),

@@ -33,8 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-logger.info('this is the error');
-
 app.use('/', homeRouter);
 app.use('/pokemon', pokemonRouter);
 

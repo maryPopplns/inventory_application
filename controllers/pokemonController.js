@@ -7,7 +7,7 @@ const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 exports.pokemon_get = function (req, res, next) {
   // TODO query pokmon data
   Pokemon.find({})
-    .limit(2)
+    // .limit(10)
     .populate('moves')
     .then((pokemon) => {
       const filteredPokemonData = pokemon.map((pokemon) => {
@@ -16,17 +16,35 @@ exports.pokemon_get = function (req, res, next) {
         const nameCap = Array.from(name)
           .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
           .join('');
-        const move = moves.sort((a, b) => b.power - a.power);
-        logger.debug(move);
         const image = images.large;
+
+        const ranMoves = [];
+        if (moves.length === 1) {
+          ranMoves.push(0);
+        } else if (moves.length === 2) {
+          ranMoves.push(0);
+          ranMoves.push(1);
+        } else {
+          while (ranMoves.length < 3) {
+            const random = Math.floor(Math.random() * moves.length);
+            if (ranMoves.indexOf(random) === -1) {
+              ranMoves.push(random);
+            }
+          }
+        }
+
         return {
           name: nameCap,
           id,
           pokeid,
           height,
           weight,
-          moves: { first: move[0], second: move[1], third: move[2] },
-          // TODO randomize moves and pull move url
+          moves: {
+            first: moves[ranMoves[0]],
+            second: moves[ranMoves[1]],
+            third: moves[ranMoves[2]],
+          },
+          // TODO randomize moves
           image,
           stats,
         };
@@ -34,5 +52,5 @@ exports.pokemon_get = function (req, res, next) {
       // [ RENDER CARDS ]
       res.render('pokemon', { data: filteredPokemonData });
     })
-    .catch((err) => logger.error(err));
+    .catch((err) => logger.error('error' + err));
 };
