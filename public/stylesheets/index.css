@@ -10,6 +10,10 @@
   font-family: "Open Sans";
   src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
+}
 body {
   position: relative;
 }
@@ -112,7 +116,7 @@ main.pokemon ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 25rem;
+  height: 27rem;
   width: 20rem;
   border: 1px solid black;
   margin: 1rem;
@@ -120,6 +124,7 @@ main.pokemon ul li {
 main.pokemon ul li header {
   display: flex;
   justify-content: space-between;
+  height: 24px;
   margin-top: 2px;
   margin-bottom: 1rem;
   padding-left: 5px;
@@ -133,12 +138,44 @@ main.pokemon ul li header h1.name {
   font-size: 1.5rem;
 }
 main.pokemon ul li div img {
-  width: 10rem;
-}
-main.pokemon ul li div.move {
   height: 10rem;
+}
+main.pokemon ul li div.moves {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: calc(16rem - 26px);
   width: 20rem;
-  border: 1px solid black;
+}
+main.pokemon ul li div.moves div.first,
+main.pokemon ul li div.moves div.second,
+main.pokemon ul li div.moves div.third {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans";
+}
+main.pokemon ul li div.moves div.first div.name,
+main.pokemon ul li div.moves div.second div.name,
+main.pokemon ul li div.moves div.third div.name {
+  margin: 0.25rem 0;
+  font-family: "Open Sans Bold";
+}
+main.pokemon ul li div.moves div.first div.effect,
+main.pokemon ul li div.moves div.second div.effect,
+main.pokemon ul li div.moves div.third div.effect {
+  display: flex;
+  margin: 0 0.125rem;
+}
+main.pokemon ul li div.moves div.first div.effect p:nth-child(1),
+main.pokemon ul li div.moves div.second div.effect p:nth-child(1),
+main.pokemon ul li div.moves div.third div.effect p:nth-child(1) {
+  margin-right: 0.75rem;
+}
+main.pokemon ul li div.moves div.first div.effect p:nth-child(2),
+main.pokemon ul li div.moves div.second div.effect p:nth-child(2),
+main.pokemon ul li div.moves div.third div.effect p:nth-child(2) {
+  font-family: "Open Sans Bold";
 }
 
 /*# sourceMappingURL=index.css.map */

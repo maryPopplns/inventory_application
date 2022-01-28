@@ -1,5 +1,4 @@
 extends layout
-
 block content
   main.pokemon
     ul
@@ -7,15 +6,27 @@ block content
         li
           header
             h1.name=val.name
-            h1.hp=val.stats.hp
+            h1.hp HP #{val.stats.hp}
           div
             img(src=val.image)
-          div.move
-            p=val.moves.first.name
-            div
-              p=val.moves.first.effect
-              p=val.moves.first.power
-            p=val.moves.second.name
-            div
-              p=val.moves.second.effect
-              p=val.moves.second.power
+          div.moves
+            div.first
+              div.name
+                h3=val.moves.first.name
+              div.effect
+                p=val.moves.first.effect
+                p=val.moves.first.power
+            if (val.moves.second !== undefined)
+              div.second
+                div.name
+                  h3=val.moves.second.name
+                div.effect
+                  p=val.moves.second.effect
+                  p=val.moves.second.power
+            if (val.moves.third !== undefined)
+              div.third
+                div.name
+                  h3=val.moves.third.name
+                div.effect
+                  p=val.moves.third.effect
+                  p=val.moves.third.power

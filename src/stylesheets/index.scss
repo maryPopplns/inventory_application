@@ -11,10 +11,15 @@
   font-family: 'Open Sans';
   src: url('../fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url('../fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
+}
 
 // [ VARIABLES ]
 $mochiy: 'Mochiy Pop One';
 $open: 'Open Sans';
+$openBold: 'Open Sans Bold';
 $white: #fcfcfc;
 $darkred: #db2d2d;
 $lightred: #cc4d4d;
@@ -49,9 +54,6 @@ header.navHeader {
     font-size: 1.4rem;
     color: black;
   }
-  // nav ul li a:hover {
-  //   font-size: 1.5rem;
-  // }
 }
 
 aside {
@@ -71,7 +73,7 @@ aside {
   }
 }
 
-// [ HOME ]
+// [ HOME ROUTE ]
 main.home {
   position: absolute;
   top: 4rem;
@@ -110,6 +112,7 @@ main.home {
   }
 }
 
+// [ POKEMON ROUTE ]
 main.pokemon {
   position: absolute;
   top: 4rem;
@@ -122,40 +125,63 @@ main.pokemon {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-
-    // height: 100%;
-    // width: 100%;
   }
   ul li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 25rem;
+    height: 27rem;
     width: 20rem;
     border: 1px solid black;
     margin: 1rem;
-  }
-  ul li header {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2px;
-    margin-bottom: 1rem;
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 100%;
-    h1 {
-      font-family: $open;
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: 24px;
+      margin-top: 2px;
+      margin-bottom: 1rem;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: 100%;
+      h1 {
+        font-family: $open;
+      }
+      h1.name {
+        font-size: 1.5rem;
+      }
     }
-    h1.name {
-      font-size: 1.5rem;
+    div img {
+      height: 10rem;
     }
-  }
-  ul li div img {
-    width: 10rem;
-  }
-  ul li div.move {
-    height: 10rem;
-    width: 20rem;
-    border: 1px solid black;
+    div.moves {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: calc(16rem - 26px);
+      width: 20rem;
+      div.first,
+      div.second,
+      div.third {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: $open;
+        // border: 1px solid black;
+        div.name {
+          margin: 0.25rem 0;
+          font-family: $openBold;
+        }
+        div.effect {
+          display: flex;
+          margin: 0 0.125rem;
+        }
+        div.effect p:nth-child(1) {
+          margin-right: 0.75rem;
+        }
+        div.effect p:nth-child(2) {
+          font-family: $openBold;
+        }
+      }
+    }
   }
 }

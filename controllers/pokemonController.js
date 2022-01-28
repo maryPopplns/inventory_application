@@ -23,7 +23,8 @@ exports.pokemon_get = function (req, res, next) {
           pokeid,
           height,
           weight,
-          moves: { first: move[0], second: move[1] },
+          moves: { first: move[0], second: move[1], third: move[2] },
+          // TODO randomize moves and pull move url
           image,
           stats,
         };
