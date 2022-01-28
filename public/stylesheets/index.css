@@ -112,16 +112,18 @@ main.pokemon ul {
   flex-wrap: wrap;
   align-content: flex-start;
 }
-main.pokemon ul li {
+main.pokemon ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 27rem;
   width: 20rem;
+  text-decoration: none;
+  color: black;
   border: 1px solid black;
   margin: 1rem;
 }
-main.pokemon ul li header {
+main.pokemon ul li a header {
   display: flex;
   justify-content: space-between;
   height: 24px;
@@ -131,50 +133,50 @@ main.pokemon ul li header {
   padding-right: 5px;
   width: 100%;
 }
-main.pokemon ul li header h1 {
+main.pokemon ul li a header h1 {
   font-family: "Open Sans";
 }
-main.pokemon ul li header h1.name {
+main.pokemon ul li a header h1.name {
   font-size: 1.5rem;
 }
-main.pokemon ul li div img {
+main.pokemon ul li a div img {
   height: 10rem;
 }
-main.pokemon ul li div.moves {
+main.pokemon ul li a div.moves {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: calc(16rem - 26px);
   width: 20rem;
 }
-main.pokemon ul li div.moves div.first,
-main.pokemon ul li div.moves div.second,
-main.pokemon ul li div.moves div.third {
+main.pokemon ul li a div.moves div.first,
+main.pokemon ul li a div.moves div.second,
+main.pokemon ul li a div.moves div.third {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Open Sans";
 }
-main.pokemon ul li div.moves div.first div.name,
-main.pokemon ul li div.moves div.second div.name,
-main.pokemon ul li div.moves div.third div.name {
+main.pokemon ul li a div.moves div.first div.name,
+main.pokemon ul li a div.moves div.second div.name,
+main.pokemon ul li a div.moves div.third div.name {
   margin: 0.25rem 0;
   font-family: "Open Sans Bold";
 }
-main.pokemon ul li div.moves div.first div.effect,
-main.pokemon ul li div.moves div.second div.effect,
-main.pokemon ul li div.moves div.third div.effect {
+main.pokemon ul li a div.moves div.first div.effect,
+main.pokemon ul li a div.moves div.second div.effect,
+main.pokemon ul li a div.moves div.third div.effect {
   display: flex;
-  margin: 0 0.125rem;
+  margin: 0 0.25rem;
 }
-main.pokemon ul li div.moves div.first div.effect p:nth-child(1),
-main.pokemon ul li div.moves div.second div.effect p:nth-child(1),
-main.pokemon ul li div.moves div.third div.effect p:nth-child(1) {
+main.pokemon ul li a div.moves div.first div.effect p:nth-child(1),
+main.pokemon ul li a div.moves div.second div.effect p:nth-child(1),
+main.pokemon ul li a div.moves div.third div.effect p:nth-child(1) {
   margin-right: 0.75rem;
 }
-main.pokemon ul li div.moves div.first div.effect p:nth-child(2),
-main.pokemon ul li div.moves div.second div.effect p:nth-child(2),
-main.pokemon ul li div.moves div.third div.effect p:nth-child(2) {
+main.pokemon ul li a div.moves div.first div.effect p:nth-child(2),
+main.pokemon ul li a div.moves div.second div.effect p:nth-child(2),
+main.pokemon ul li a div.moves div.third div.effect p:nth-child(2) {
   font-family: "Open Sans Bold";
 }
 

@@ -126,12 +126,14 @@ main.pokemon {
     flex-wrap: wrap;
     align-content: flex-start;
   }
-  ul li {
+  ul li a {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 27rem;
     width: 20rem;
+    text-decoration: none;
+    color: black;
     border: 1px solid black;
     margin: 1rem;
     header {
@@ -173,7 +175,7 @@ main.pokemon {
         }
         div.effect {
           display: flex;
-          margin: 0 0.125rem;
+          margin: 0 0.25rem;
         }
         div.effect p:nth-child(1) {
           margin-right: 0.75rem;

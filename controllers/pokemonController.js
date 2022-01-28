@@ -11,7 +11,8 @@ exports.pokemon_get = function (req, res, next) {
     .populate('moves')
     .then((pokemon) => {
       const filteredPokemonData = pokemon.map((pokemon) => {
-        const { name, pokeid, height, weight, moves, images, stats } = pokemon;
+        const { id, name, pokeid, height, weight, moves, images, stats } =
+          pokemon;
         const nameCap = Array.from(name)
           .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
           .join('');
@@ -20,6 +21,7 @@ exports.pokemon_get = function (req, res, next) {
         const image = images.large;
         return {
           name: nameCap,
+          id,
           pokeid,
           height,
           weight,
