@@ -1,0 +1,9 @@
+extends layout
+block content
+  main.types
+    ul
+      each type in types
+        li
+          a(href=type.url)
+            div
+              p(class=type.name) #{type.name}

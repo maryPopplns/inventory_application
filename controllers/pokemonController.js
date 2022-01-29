@@ -45,7 +45,7 @@ exports.pokemon_get = function (req, res, next) {
           stats,
         };
       });
-      // [ RENDER CARDS ]
+      // [ RENDER POKEMON ]
       res.render('pokemon', { data: filteredPokemonData });
     })
     .catch((err) => logger.error(err));

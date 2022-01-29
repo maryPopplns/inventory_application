@@ -6,7 +6,6 @@ const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 
 exports.moves_get = function (req, res, next) {
   // [ QUERY/FILTER MOVES DATA ]
-  // TODO query data
   Move.find({})
     .populate('type')
     .then((moves) => {
@@ -22,6 +21,8 @@ exports.moves_get = function (req, res, next) {
           };
         }
       );
+      // [ RENDER MOVES ]
       res.render('moves', { moves: filteredMoves });
-    });
+    })
+    .catch((error) => logger.error(error));
 };

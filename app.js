@@ -11,6 +11,7 @@ const { logger } = require(path.join(__dirname, 'logger'));
 const homeRouter = require(path.join(__dirname, '/routes/home'));
 const pokemonRouter = require(path.join(__dirname, '/routes/pokemon'));
 const movesRouter = require(path.join(__dirname, '/routes/moves'));
+const typesRouter = require(path.join(__dirname, '/routes/types'));
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', homeRouter);
 app.use('/pokemon', pokemonRouter);
 app.use('/moves', movesRouter);
+app.use('/types', typesRouter);
 
 // [ 404 ROUTE ]
 app.use(function (req, res, next) {

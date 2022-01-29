@@ -222,6 +222,41 @@ main.moves ul li a div {
   font-family: "Open Sans";
 }
 
+main.types {
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 10rem);
+  background-color: #ffdde3;
+  overflow-y: auto;
+}
+main.types ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+main.types ul li {
+  height: 10rem;
+  width: 10rem;
+  margin: 1rem;
+  border: 1px solid black;
+}
+main.types ul li a {
+  text-decoration: none;
+  color: black;
+}
+main.types ul li a div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10rem;
+  width: 10rem;
+}
+main.types ul li a div p {
+  margin-top: 0.5rem;
+}
+
 main.error {
   position: absolute;
   top: 4rem;
