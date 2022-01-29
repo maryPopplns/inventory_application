@@ -191,6 +191,36 @@ main.moves {
   background-color: #ffdde3;
   overflow-y: auto;
 }
+main.moves ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+main.moves ul li {
+  height: 14rem;
+  width: 11rem;
+  border: 1px solid black;
+  margin: 1rem;
+}
+main.moves ul li a {
+  text-decoration: none;
+  color: black;
+}
+main.moves ul li a header {
+  display: flex;
+  justify-content: center;
+  margin: 0.75rem 0;
+}
+main.moves ul li a header h3 {
+  font-family: "Mochiy Pop One";
+}
+main.moves ul li a div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 11.5rem;
+  font-family: "Open Sans";
+}
 
 main.error {
   position: absolute;

@@ -10,7 +10,6 @@ const MoveSchema = new Schema({
   type: { type: Schema.Types.ObjectId, ref: 'Type' },
 });
 
-// [ ROUTE URL ]
 MoveSchema.virtual('url').get(function () {
   return '/move/' + this._id;
 });

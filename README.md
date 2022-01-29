@@ -38,3 +38,4 @@
 ##### css
 
 - custom font path src is relative to the css file
+- learned mixins using SCSS

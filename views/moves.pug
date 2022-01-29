@@ -1,0 +1,14 @@
+extends layout
+block content
+  main.moves
+    ul
+      each move in moves
+        li
+          a(href=move.url)
+            header
+              h3=move.name
+            div
+              p power: #{move.power}
+              p effect: #{move.effect}
+              p pp: #{move.pp}
+              p type: #{move.type}

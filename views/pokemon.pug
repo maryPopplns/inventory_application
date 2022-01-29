@@ -4,6 +4,7 @@ block content
     ul
       each val in data
         li
+          //- a(href='pokemon/' + val.id)
           a(href='pokemon/' + val.id)
             header
               h1.name=val.name
