@@ -233,8 +233,8 @@ main.types ul {
   align-content: flex-start;
 }
 main.types ul li {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   margin: 1rem;
   border: 1px solid black;
 }
@@ -246,8 +246,8 @@ main.types ul li a div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
 }
 main.types ul li a div p {
   margin-top: 0.5rem;
@@ -256,7 +256,6 @@ main.types ul li a div div.imageContainer {
   height: 75px;
   width: 75px;
   margin-top: 1rem;
-  border: 1px solid black;
   overflow: hidden;
 }
 main.types ul li a div div.imageContainer img.normal {

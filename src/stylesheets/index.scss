@@ -241,8 +241,8 @@ main.types {
     @include flexWrap();
   }
   ul li {
-    height: 10rem;
-    width: 10rem;
+    height: 8rem;
+    width: 8rem;
     margin: 1rem;
     border: 1px solid black;
   }
@@ -253,8 +253,8 @@ main.types {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 10rem;
-      width: 10rem;
+      height: 8rem;
+      width: 8rem;
     }
     div p {
       margin-top: 0.5rem;
@@ -263,7 +263,6 @@ main.types {
       height: 75px;
       width: 75px;
       margin-top: 1rem;
-      border: 1px solid black;
       overflow: hidden;
       img.normal {
         @include sprite(null, 205px, null, 141px);
