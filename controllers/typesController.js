@@ -6,8 +6,7 @@ const Type = require(path.join(__dirname, '../models/type'));
 
 exports.types_get = function (req, res, next) {
   // [ QUERY/FILTER MOVES DATA ]
-  Type.find({})
-    // .limit(1)
+  Type.find()
     .then((types) => {
       // [ RENDER TYPES ]
       const names = [];
@@ -17,7 +16,8 @@ exports.types_get = function (req, res, next) {
           .join('');
         return {
           url,
-          name: nameCap,
+          name,
+          nameCap,
         };
       });
       logger.debug(names);

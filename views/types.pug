@@ -6,4 +6,6 @@ block content
         li
           a(href=type.url)
             div
-              p(class=type.name) #{type.name}
+              p=type.nameCap
+              div.imageContainer
+                img(class=type.name, src='images/typesSprite.png')

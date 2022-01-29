@@ -79,7 +79,7 @@ aside {
   left: 10rem;
   height: calc(100vh - 4rem);
   width: calc(100vw - 10rem);
-  background-color: #ffdde3;
+  // background-color: #ffdde3;
   overflow-y: auto;
 }
 
@@ -221,6 +221,20 @@ main.moves {
   }
 }
 
+@mixin sprite($left, $right, $top, $bottom) {
+  position: relative;
+  @if $right {
+    right: $right;
+  } @else {
+    left: $left;
+  }
+  @if $top {
+    top: $top;
+  } @else {
+    bottom: $bottom;
+  }
+}
+
 main.types {
   @include mainContent();
   ul {
@@ -244,6 +258,67 @@ main.types {
     }
     div p {
       margin-top: 0.5rem;
+    }
+    div div.imageContainer {
+      height: 75px;
+      width: 75px;
+      margin-top: 1rem;
+      border: 1px solid black;
+      overflow: hidden;
+      img.normal {
+        @include sprite(null, 205px, null, 141px);
+      }
+      img.poison {
+        @include sprite(126px, null, null, 251.5px);
+      }
+      img.fairy {
+        @include sprite(null, 205px, null, 251.5px);
+      }
+      img.steel {
+        @include sprite(null, 205px, null, 30px);
+      }
+      img.dark {
+        @include sprite(null, 120px, null, 251.5px);
+      }
+      img.ground {
+        @include sprite(null, 35px, null, 30px);
+      }
+      img.bug {
+        @include sprite(45px, null, null, 251.5px);
+      }
+      img.electric {
+        @include sprite(126px, null, null, 141px);
+      }
+      img.ice {
+        @include sprite(205px, null, null, 141px);
+      }
+      img.dragon {
+        @include sprite(44.5px, null, null, 141px);
+      }
+      img.flying {
+        @include sprite(null, 35.25px, null, 251.5px);
+      }
+      img.rock {
+        @include sprite(null, 120px, null, 30px);
+      }
+      img.fire {
+        @include sprite(126px, null, null, 30px);
+      }
+      img.water {
+        @include sprite(205px, null, null, 30px);
+      }
+      img.psychic {
+        @include sprite(null, 120px, null, 141px);
+      }
+      img.fighting {
+        @include sprite(205px, null, null, 251.5px);
+      }
+      img.ghost {
+        @include sprite(null, 35.25px, null, 141px);
+      }
+      img.grass {
+        @include sprite(45px, null, null, 30px);
+      }
     }
   }
 }

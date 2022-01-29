@@ -66,7 +66,6 @@ main.home {
   left: 10rem;
   height: calc(100vh - 4rem);
   width: calc(100vw - 10rem);
-  background-color: #ffdde3;
   overflow-y: auto;
 }
 main.home ul {
@@ -104,7 +103,6 @@ main.pokemon {
   left: 10rem;
   height: calc(100vh - 4rem);
   width: calc(100vw - 10rem);
-  background-color: #ffdde3;
   overflow-y: auto;
 }
 main.pokemon ul {
@@ -188,7 +186,6 @@ main.moves {
   left: 10rem;
   height: calc(100vh - 4rem);
   width: calc(100vw - 10rem);
-  background-color: #ffdde3;
   overflow-y: auto;
 }
 main.moves ul {
@@ -228,7 +225,6 @@ main.types {
   left: 10rem;
   height: calc(100vh - 4rem);
   width: calc(100vw - 10rem);
-  background-color: #ffdde3;
   overflow-y: auto;
 }
 main.types ul {
@@ -256,6 +252,103 @@ main.types ul li a div {
 main.types ul li a div p {
   margin-top: 0.5rem;
 }
+main.types ul li a div div.imageContainer {
+  height: 75px;
+  width: 75px;
+  margin-top: 1rem;
+  border: 1px solid black;
+  overflow: hidden;
+}
+main.types ul li a div div.imageContainer img.normal {
+  position: relative;
+  right: 205px;
+  bottom: 141px;
+}
+main.types ul li a div div.imageContainer img.poison {
+  position: relative;
+  left: 126px;
+  bottom: 251.5px;
+}
+main.types ul li a div div.imageContainer img.fairy {
+  position: relative;
+  right: 205px;
+  bottom: 251.5px;
+}
+main.types ul li a div div.imageContainer img.steel {
+  position: relative;
+  right: 205px;
+  bottom: 30px;
+}
+main.types ul li a div div.imageContainer img.dark {
+  position: relative;
+  right: 120px;
+  bottom: 251.5px;
+}
+main.types ul li a div div.imageContainer img.ground {
+  position: relative;
+  right: 35px;
+  bottom: 30px;
+}
+main.types ul li a div div.imageContainer img.bug {
+  position: relative;
+  left: 45px;
+  bottom: 251.5px;
+}
+main.types ul li a div div.imageContainer img.electric {
+  position: relative;
+  left: 126px;
+  bottom: 141px;
+}
+main.types ul li a div div.imageContainer img.ice {
+  position: relative;
+  left: 205px;
+  bottom: 141px;
+}
+main.types ul li a div div.imageContainer img.dragon {
+  position: relative;
+  left: 44.5px;
+  bottom: 141px;
+}
+main.types ul li a div div.imageContainer img.flying {
+  position: relative;
+  right: 35.25px;
+  bottom: 251.5px;
+}
+main.types ul li a div div.imageContainer img.rock {
+  position: relative;
+  right: 120px;
+  bottom: 30px;
+}
+main.types ul li a div div.imageContainer img.fire {
+  position: relative;
+  left: 126px;
+  bottom: 30px;
+}
+main.types ul li a div div.imageContainer img.water {
+  position: relative;
+  left: 205px;
+  bottom: 30px;
+}
+main.types ul li a div div.imageContainer img.psychic {
+  position: relative;
+  right: 120px;
+  bottom: 141px;
+}
+main.types ul li a div div.imageContainer img.fighting {
+  position: relative;
+  left: 205px;
+  bottom: 251.5px;
+}
+main.types ul li a div div.imageContainer img.ghost {
+  position: relative;
+  right: 35.25px;
+  bottom: 141px;
+}
+main.types ul li a div div.imageContainer img.grass {
+  position: relative;
+  left: 45px;
+  bottom: 30px;
+}
 
 main.error {
   position: absolute;
@@ -263,7 +356,6 @@ main.error {
   left: 10rem;
   height: calc(100vh - 4rem);
   width: calc(100vw - 10rem);
-  background-color: #ffdde3;
   overflow-y: auto;
 }
 
