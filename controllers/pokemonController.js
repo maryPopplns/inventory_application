@@ -15,6 +15,7 @@ exports.pokemon_get = function (req, res, next) {
           .join('');
         const image = images.large;
 
+        // [ PULL RANDOM MOVES ]
         const ranMoves = [];
         if (moves.length === 1) {
           ranMoves.push(0);

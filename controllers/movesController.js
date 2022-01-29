@@ -11,8 +11,13 @@ exports.moves_get = function (req, res, next) {
     .then((moves) => {
       const filteredMoves = moves.map(
         ({ name, effect, power, type, pp, url }) => {
+          const nameCap = Array.from(name)
+            .map((letter, index) =>
+              index === 0 ? letter.toUpperCase() : letter
+            )
+            .join('');
           return {
-            name,
+            name: nameCap,
             effect,
             power,
             type: type.name,
