@@ -56,30 +56,9 @@ header.navHeader {
   }
 }
 
-aside {
-  height: calc(100vh - 4rem);
-  width: 10rem;
-  background: linear-gradient(180deg, $darkblue 0%, $lightblue 75%);
-  nav {
-    padding-left: 0.5rem;
-  }
-  nav ul {
-    padding: 1rem 0;
-  }
-  nav ul li {
-    padding: 0.5rem 0;
-    font-family: $mochiy;
-    font-size: 0.8rem;
-  }
-}
-
 @mixin mainContent {
-  position: absolute;
-  top: 4rem;
-  left: 10rem;
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
-  // background-color: #ffdde3;
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
 }
 

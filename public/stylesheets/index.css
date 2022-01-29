@@ -43,29 +43,9 @@ header.navHeader nav ul li a {
   color: black;
 }
 
-aside {
-  height: calc(100vh - 4rem);
-  width: 10rem;
-  background: linear-gradient(180deg, #4a57b9 0%, #6e77c2 75%);
-}
-aside nav {
-  padding-left: 0.5rem;
-}
-aside nav ul {
-  padding: 1rem 0;
-}
-aside nav ul li {
-  padding: 0.5rem 0;
-  font-family: "Mochiy Pop One";
-  font-size: 0.8rem;
-}
-
 main.home {
-  position: absolute;
-  top: 4rem;
-  left: 10rem;
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
 }
 main.home ul {
@@ -98,11 +78,8 @@ main.home ul li a div h1 {
 }
 
 main.pokemon {
-  position: absolute;
-  top: 4rem;
-  left: 10rem;
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
 }
 main.pokemon ul {
@@ -181,11 +158,8 @@ main.pokemon ul li a div.moves div.third div.effect p:nth-child(2) {
 }
 
 main.moves {
-  position: absolute;
-  top: 4rem;
-  left: 10rem;
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
 }
 main.moves ul {
@@ -220,11 +194,8 @@ main.moves ul li a div {
 }
 
 main.types {
-  position: absolute;
-  top: 4rem;
-  left: 10rem;
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
 }
 main.types ul {
@@ -350,11 +321,8 @@ main.types ul li a div div.imageContainer img.grass {
 }
 
 main.error {
-  position: absolute;
-  top: 4rem;
-  left: 10rem;
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
 }
 

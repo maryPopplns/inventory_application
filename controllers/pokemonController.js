@@ -51,3 +51,15 @@ exports.pokemon_get = function (req, res, next) {
     })
     .catch((err) => logger.error(err));
 };
+
+exports.pokemon_instance_get = function (req, res, next) {
+  const id = req.params.id;
+  Pokemon.findById(id)
+    .populate('moves types')
+    .then((pokemon) => {
+      // TODO create view for the instance
+      logger.debug(pokemon);
+      res.end(id);
+    })
+    .catch((error) => logger.error(error));
+};
