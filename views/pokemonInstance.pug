@@ -40,7 +40,8 @@ block content
         div.content.movesContent
           ul
             each move in moves
-              p=move.name
+              li
+                a(href=move.url) #{move.name}
       div.types
         div.slider.typesSlider
           p Types
@@ -49,4 +50,5 @@ block content
         div.content.typesContent
           ul
             each pokeType in pokeTypes
-              p=pokeType.name
+              li
+                a(href=pokeType.url) #{pokeType.name}

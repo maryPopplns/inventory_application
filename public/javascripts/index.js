@@ -6,16 +6,15 @@
 
   var moveHandler = function moveHandler() {
     var movesContent = document.getElementsByClassName('movesContent')[0];
-    movesContent.classList.toggle('open');
+    movesContent.classList.toggle('open'); // TODO change the arrow button
   };
 
   var typeHandler = function typeHandler() {
     var typesContent = document.getElementsByClassName('typesContent')[0];
-    typesContent.classList.toggle('open');
+    typesContent.classList.toggle('open'); // TODO change the arrow button
   };
 
   movesSlider.addEventListener('click', moveHandler);
-  typesSlider.addEventListener('click', typeHandler); // console.log(movesSlider);
-  // console.log(typesSlider);
+  typesSlider.addEventListener('click', typeHandler);
 })();
 //# sourceMappingURL=index.js.map
