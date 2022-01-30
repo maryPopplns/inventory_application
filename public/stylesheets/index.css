@@ -443,6 +443,13 @@ main.pokemonInstance div.infoContainer div.types div.open {
   justify-content: center;
 }
 
+main.moveInstance {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  background-color: #ffea60;
+  overflow-y: auto;
+}
+
 main.error {
   height: calc(100vh - 4rem);
   width: 100%;

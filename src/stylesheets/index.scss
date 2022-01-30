@@ -369,6 +369,11 @@ main.pokemonInstance {
   }
 }
 
+// [ MOVE INSTANCE ]
+main.moveInstance {
+  @include mainContent();
+}
+
 // [ ERROR PAGE ]
 main.error {
   @include mainContent();

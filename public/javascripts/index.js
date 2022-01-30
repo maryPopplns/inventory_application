@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 (function movesTypesSlider() {
   var movesSlider = document.getElementsByClassName('movesSlider')[0];

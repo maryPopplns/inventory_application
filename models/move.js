@@ -11,7 +11,7 @@ const MoveSchema = new Schema({
 });
 
 MoveSchema.virtual('url').get(function () {
-  return '/move/' + this._id;
+  return '/moves/' + this._id;
 });
 
 module.exports = mongoose.model('Move', MoveSchema);

@@ -14,7 +14,7 @@ const TypesSchema = new Schema({
 
 // [ ROUTE URL ]
 TypesSchema.virtual('url').get(function () {
-  return '/type/' + this._id;
+  return '/types/' + this._id;
 });
 
 module.exports = mongoose.model('Type', TypesSchema);

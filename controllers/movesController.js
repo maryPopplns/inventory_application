@@ -31,3 +31,16 @@ exports.moves_get = function (req, res, next) {
     })
     .catch((error) => logger.error(error));
 };
+
+exports.moves_instance_get = function (req, res, next) {
+  const id = req.params.id;
+  console.log('hola');
+  res.end();
+  // Move.findById(id)
+  //   .then((move) => {
+  //     logger.debug(move);
+  //     res.end();
+  //     // res.render('moveInstance', {})
+  //   })
+  //   .catch((error) => logger.error(error));
+};
