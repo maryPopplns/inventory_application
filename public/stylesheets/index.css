@@ -353,6 +353,14 @@ main.pokemonInstance div.infoContainer {
   width: 40rem;
   border: 5px solid black;
 }
+main.pokemonInstance div.infoContainer div.images {
+  display: flex;
+  justify-content: space-around;
+}
+main.pokemonInstance div.infoContainer div.images div.front img,
+main.pokemonInstance div.infoContainer div.images div.back img {
+  height: 10rem;
+}
 main.pokemonInstance div.infoContainer div.stats {
   display: flex;
   flex-direction: column;
