@@ -25,6 +25,6 @@ Pokemon.findOne({}).exec((err, result) => {
     mongoose.connection.close();
   } else {
     db.info(result);
-    mongoose.connection.close();
+    // mongoose.connection.close();
   }
 });
