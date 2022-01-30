@@ -14,7 +14,7 @@
     "popall": "npm run poptypes && npm run popmoves && npm run poppokemon",
     "poptypes": "node populateDB/popTypeNames.js && node populateDB/popTypeDetails.js",
     "---": "<-------------------[ BUILD ]--------------------------------------->",
-    "babel": "npx babel src --out-dir public",
+    "babel": "npx babel src --watch --out-dir public --source-maps",
     "sass": "sass --watch src/stylesheets:public/stylesheets"
   },
   "dependencies": {
