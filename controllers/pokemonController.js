@@ -75,7 +75,7 @@ exports.pokemon_instance_get = function (req, res, next) {
         weight,
         moves: filteredMoves,
         stats,
-        types: filteredTypes,
+        pokeTypes: filteredTypes,
         images,
       });
     })

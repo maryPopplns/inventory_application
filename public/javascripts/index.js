@@ -4,12 +4,14 @@
   var movesSlider = document.getElementsByClassName('movesSlider')[0];
   var typesSlider = document.getElementsByClassName('typesSlider')[0];
 
-  var moveHandler = function moveHandler(event) {
-    console.log(event);
+  var moveHandler = function moveHandler() {
+    var movesContent = document.getElementsByClassName('movesContent')[0];
+    movesContent.classList.toggle('open');
   };
 
-  var typeHandler = function typeHandler(event) {
-    console.log(event);
+  var typeHandler = function typeHandler() {
+    var typesContent = document.getElementsByClassName('typesContent')[0];
+    typesContent.classList.toggle('open');
   };
 
   movesSlider.addEventListener('click', moveHandler);

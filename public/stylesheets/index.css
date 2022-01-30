@@ -362,21 +362,23 @@ main.pokemonInstance div.infoContainer div.stats div {
 main.pokemonInstance div.infoContainer div.stats div:nth-child(-n+8) {
   margin-bottom: 0.5rem;
 }
-main.pokemonInstance div.infoContainer div div p:nth-child(1) {
+main.pokemonInstance div.infoContainer div.stats div p:nth-child(1) {
   font-size: 1.2rem;
   font-family: "Open Sans Bold";
   margin-right: 0.5rem;
 }
-main.pokemonInstance div.infoContainer div div p:nth-child(2) {
+main.pokemonInstance div.infoContainer div.stats div p:nth-child(2) {
   font-size: 1.1rem;
   font-family: "Open Sans";
 }
 main.pokemonInstance div.infoContainer div.moves,
 main.pokemonInstance div.infoContainer div.types {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-main.pokemonInstance div.infoContainer div.slider {
+main.pokemonInstance div.infoContainer div.moves div.slider,
+main.pokemonInstance div.infoContainer div.types div.slider {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -386,14 +388,26 @@ main.pokemonInstance div.infoContainer div.slider {
   border: 3px solid black;
   border-radius: 0.5rem;
 }
-main.pokemonInstance div.infoContainer div.slider p {
+main.pokemonInstance div.infoContainer div.moves div.slider p,
+main.pokemonInstance div.infoContainer div.types div.slider p {
+  font-family: "Open Sans";
   width: 5rem;
 }
-main.pokemonInstance div.infoContainer div.arrowImageWrapper {
+main.pokemonInstance div.infoContainer div.moves div.slider div.arrowImageWrapper,
+main.pokemonInstance div.infoContainer div.types div.slider div.arrowImageWrapper {
   height: 90%;
 }
-main.pokemonInstance div.infoContainer div.arrowImageWrapper img {
+main.pokemonInstance div.infoContainer div.moves div.slider div.arrowImageWrapper img,
+main.pokemonInstance div.infoContainer div.types div.slider div.arrowImageWrapper img {
   height: 100%;
+}
+main.pokemonInstance div.infoContainer div.moves div.content,
+main.pokemonInstance div.infoContainer div.types div.content {
+  display: none;
+}
+main.pokemonInstance div.infoContainer div.moves div.open,
+main.pokemonInstance div.infoContainer div.types div.open {
+  display: block;
 }
 
 main.error {
