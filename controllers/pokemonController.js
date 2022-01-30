@@ -73,9 +73,9 @@ exports.pokemon_instance_get = function (req, res, next) {
         pokeid,
         height,
         weight,
-        filteredMoves,
+        moves: filteredMoves,
         stats,
-        filteredTypes,
+        types: filteredTypes,
         images,
       });
     })

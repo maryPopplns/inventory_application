@@ -177,6 +177,7 @@ main.pokemon {
   }
 }
 
+// [ POKEMON MOVES ]
 main.moves {
   @include mainContent();
   ul {
@@ -209,6 +210,7 @@ main.moves {
   }
 }
 
+// [ POKEMON TYPES ]
 main.types {
   @include mainContent();
   ul {
@@ -264,6 +266,7 @@ main.types {
   }
 }
 
+// [ POKEMON INSTANCE ]
 main.pokemonInstance {
   @include mainContent();
   display: flex;
@@ -274,34 +277,58 @@ main.pokemonInstance {
     font-family: $openBold;
     font-size: 2rem;
   }
-  div.statsContainer {
+  div.infoContainer {
     display: flex;
     flex-direction: column;
-    height: 50rem;
     width: 40rem;
     border: 5px solid black;
-    div.wrapper {
-      margin-top: 1rem;
-      margin-left: 1rem;
+    div.stats {
+      margin: 1rem 0 1rem 1rem;
     }
-    div div {
+    div.stats div {
       display: flex;
     }
-    div div:nth-child(-n + 8) {
+    div.stats div:nth-child(-n + 8) {
       margin-bottom: 0.5rem;
     }
     div div p:nth-child(1) {
-      // font-size: 2rem;
+      font-size: 1.2rem;
       font-family: $openBold;
       margin-right: 0.5rem;
     }
     div div p:nth-child(2) {
-      // font-size: 2rem;
+      font-size: 1.1rem;
       font-family: $open;
+    }
+    // [ MOVE/TYPE SLIDERS ]
+    div.moves,
+    div.types {
+      display: flex;
+      justify-content: center;
+    }
+    div.slider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5rem 1rem;
+      height: 3rem;
+      width: 40%;
+      border: 3px solid black;
+      border-radius: 0.5rem;
+    }
+    div.slider p {
+      width: 5rem;
+    }
+    div.arrowImageWrapper {
+      height: 90%;
+    }
+    div.arrowImageWrapper img {
+      height: 100%;
     }
   }
 }
 
+// [ ERROR PAGE ]
 main.error {
   @include mainContent();
 }

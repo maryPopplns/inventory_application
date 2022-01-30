@@ -3,8 +3,8 @@ block content
   main.pokemonInstance
     header
       h3=name
-    div.statsContainer
-      div.wrapper
+    div.infoContainer
+      div.stats
         div
           p ID:
           p=pokeid
@@ -32,3 +32,17 @@ block content
         div
           p Speed:
           p=stats.speed
+      div.moves
+        div.slider.movesSlider
+          p Moves
+          div.arrowImageWrapper
+            img(src='/images/downArrow.svg')
+        div.movesContent
+            //- each move in moves
+      div.types
+        div.slider.typesSlider
+          p Types
+          div.arrowImageWrapper
+            img(src='/images/downArrow.svg')
+        div.typesContent
+            //- each type in types

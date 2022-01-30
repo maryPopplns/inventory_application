@@ -347,29 +347,53 @@ main.pokemonInstance header {
   font-family: "Open Sans Bold";
   font-size: 2rem;
 }
-main.pokemonInstance div.statsContainer {
+main.pokemonInstance div.infoContainer {
   display: flex;
   flex-direction: column;
-  height: 50rem;
   width: 40rem;
   border: 5px solid black;
 }
-main.pokemonInstance div.statsContainer div.wrapper {
-  margin-top: 1rem;
-  margin-left: 1rem;
+main.pokemonInstance div.infoContainer div.stats {
+  margin: 1rem 0 1rem 1rem;
 }
-main.pokemonInstance div.statsContainer div div {
+main.pokemonInstance div.infoContainer div.stats div {
   display: flex;
 }
-main.pokemonInstance div.statsContainer div div:nth-child(-n+8) {
+main.pokemonInstance div.infoContainer div.stats div:nth-child(-n+8) {
   margin-bottom: 0.5rem;
 }
-main.pokemonInstance div.statsContainer div div p:nth-child(1) {
+main.pokemonInstance div.infoContainer div div p:nth-child(1) {
+  font-size: 1.2rem;
   font-family: "Open Sans Bold";
   margin-right: 0.5rem;
 }
-main.pokemonInstance div.statsContainer div div p:nth-child(2) {
+main.pokemonInstance div.infoContainer div div p:nth-child(2) {
+  font-size: 1.1rem;
   font-family: "Open Sans";
+}
+main.pokemonInstance div.infoContainer div.moves,
+main.pokemonInstance div.infoContainer div.types {
+  display: flex;
+  justify-content: center;
+}
+main.pokemonInstance div.infoContainer div.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 1rem;
+  height: 3rem;
+  width: 40%;
+  border: 3px solid black;
+  border-radius: 0.5rem;
+}
+main.pokemonInstance div.infoContainer div.slider p {
+  width: 5rem;
+}
+main.pokemonInstance div.infoContainer div.arrowImageWrapper {
+  height: 90%;
+}
+main.pokemonInstance div.infoContainer div.arrowImageWrapper img {
+  height: 100%;
 }
 
 main.error {
