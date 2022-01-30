@@ -38,4 +38,4 @@
 ##### css
 
 - custom font path src is relative to the css file
-- learned mixins to reduce code duplication
+- learned mixins and loops to reduce duplicate code and increase modularity

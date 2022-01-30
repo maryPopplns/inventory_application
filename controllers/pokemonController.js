@@ -53,13 +53,31 @@ exports.pokemon_get = function (req, res, next) {
 };
 
 exports.pokemon_instance_get = function (req, res, next) {
+  // [ QUERY/FILTER POKEMON INSTANCE DATA ]
   const id = req.params.id;
   Pokemon.findById(id)
     .populate('moves types')
-    .then((pokemon) => {
-      // TODO create view for the instance
-      logger.debug(pokemon);
-      res.end(id);
+    .then(({ name, pokeid, height, weight, moves, stats, types, images }) => {
+      const nameCap = Array.from(name)
+        .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+        .join('');
+      const filteredMoves = moves.map(({ name, url }) => {
+        return { name, url };
+      });
+      const filteredTypes = types.map(({ name, url }) => {
+        return { name, url };
+      });
+      // [ RENDER POKEMON INSTANCE ]
+      res.render('pokemonInstance', {
+        name: nameCap,
+        pokeid,
+        height,
+        weight,
+        filteredMoves,
+        stats,
+        filteredTypes,
+        images,
+      });
     })
     .catch((error) => logger.error(error));
 };

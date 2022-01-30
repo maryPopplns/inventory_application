@@ -14,6 +14,15 @@
   font-family: "Open Sans Bold";
   src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
 }
+::-webkit-scrollbar {
+  width: 22px;
+  background: #db2d2d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6e77c2;
+}
+
 body {
   position: relative;
 }
@@ -44,8 +53,9 @@ header.navHeader nav ul li a {
 }
 
 main.home {
-  height: 100%;
+  height: calc(100vh - 4rem);
   width: 100%;
+  background-color: #ffea60;
   overflow-y: auto;
 }
 main.home ul {
@@ -78,8 +88,9 @@ main.home ul li a div h1 {
 }
 
 main.pokemon {
-  height: 100%;
+  height: calc(100vh - 4rem);
   width: 100%;
+  background-color: #ffea60;
   overflow-y: auto;
 }
 main.pokemon ul {
@@ -158,8 +169,9 @@ main.pokemon ul li a div.moves div.third div.effect p:nth-child(2) {
 }
 
 main.moves {
-  height: 100%;
+  height: calc(100vh - 4rem);
   width: 100%;
+  background-color: #ffea60;
   overflow-y: auto;
 }
 main.moves ul {
@@ -194,8 +206,9 @@ main.moves ul li a div {
 }
 
 main.types {
-  height: 100%;
+  height: calc(100vh - 4rem);
   width: 100%;
+  background-color: #ffea60;
   overflow-y: auto;
 }
 main.types ul {
@@ -320,9 +333,49 @@ main.types ul li a div div.imageContainer img.grass {
   bottom: 30px;
 }
 
-main.error {
-  height: 100%;
+main.pokemonInstance {
+  height: calc(100vh - 4rem);
   width: 100%;
+  background-color: #ffea60;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main.pokemonInstance header {
+  margin: 1rem 0;
+  font-family: "Open Sans Bold";
+  font-size: 2rem;
+}
+main.pokemonInstance div.statsContainer {
+  display: flex;
+  flex-direction: column;
+  height: 50rem;
+  width: 40rem;
+  border: 5px solid black;
+}
+main.pokemonInstance div.statsContainer div.wrapper {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+main.pokemonInstance div.statsContainer div div {
+  display: flex;
+}
+main.pokemonInstance div.statsContainer div div:nth-child(-n+8) {
+  margin-bottom: 0.5rem;
+}
+main.pokemonInstance div.statsContainer div div p:nth-child(1) {
+  font-family: "Open Sans Bold";
+  margin-right: 0.5rem;
+}
+main.pokemonInstance div.statsContainer div div p:nth-child(2) {
+  font-family: "Open Sans";
+}
+
+main.error {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  background-color: #ffea60;
   overflow-y: auto;
 }
 

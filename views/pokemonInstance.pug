@@ -1,0 +1,34 @@
+extends layout
+block content
+  main.pokemonInstance
+    header
+      h3=name
+    div.statsContainer
+      div.wrapper
+        div
+          p ID:
+          p=pokeid
+        div
+          p Height:
+          p=height
+        div
+          p Weight:
+          p=weight
+        div
+          p HP:
+          p=stats.hp
+        div
+          p Attack:
+          p=stats.attack
+        div
+          p Defense:
+          p=stats.defence
+        div
+          p Special Attack:
+          p=stats['special-attack']
+        div
+          p Special Defense:
+          p=stats['special-defense']
+        div
+          p Speed:
+          p=stats.speed
