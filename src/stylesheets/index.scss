@@ -401,6 +401,70 @@ main.moveInstance {
   }
 }
 
+// [ TYPE INSTANCE ]
+main.typeInstance {
+  @include mainContent();
+  div.typeInstanceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    header.moveNameHeader h3 {
+      margin: 1rem 0;
+      font-family: $openBold;
+      font-size: 2rem;
+    }
+    div.typeInstanceDetails {
+      width: 20rem;
+      div.typeInstanceDetail {
+        display: flex;
+        flex-direction: column;
+        div.slider {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 3rem;
+          margin: 1rem 0;
+          border: 3px solid black;
+          border-radius: 0.5rem;
+          p {
+            font-family: $open;
+            width: 11rem;
+          }
+          div.arrowImageWrapper {
+            height: 90%;
+          }
+          div.arrowImageWrapper img {
+            height: 100%;
+          }
+        }
+        div.content {
+          display: none;
+          ul {
+            @include flexWrap();
+            justify-content: center;
+          }
+          ul li {
+            padding: 0.5rem;
+            margin: 0.5rem;
+            border: 3px solid black;
+            background-color: $extralightred;
+            border-radius: 0.5rem;
+          }
+          ul li a {
+            font-family: $open;
+            text-decoration: none;
+            color: black;
+          }
+        }
+        div.open {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
 // [ ERROR PAGE ]
 main.error {
   @include mainContent();

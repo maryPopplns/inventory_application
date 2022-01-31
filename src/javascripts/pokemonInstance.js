@@ -1,4 +1,5 @@
-(function movesTypesSlider() {
+// [ SLIDER ]
+(function pokemonInstance() {
   const movesSlider = document.getElementsByClassName('movesSlider')[0];
   const typesSlider = document.getElementsByClassName('typesSlider')[0];
   const moveHandler = () => {
@@ -13,4 +14,16 @@
   };
   movesSlider.addEventListener('click', moveHandler);
   typesSlider.addEventListener('click', typeHandler);
+})();
+
+// [ SLIDER ]
+(function movesInstance() {
+  console.log('hola mundo');
+  // const ddfSlider = document.getElementsByClassName('ddfSlider')[0];
+  // const ddfHandler = () => {
+  //   const movesContent = document.getElementsByClassName('ddfContent')[0];
+  //   movesContent.classList.toggle('open');
+  //   // TODO change the arrow button
+  // };
+  // ddfSlider.addEventListener('click', ddfHandler);
 })();

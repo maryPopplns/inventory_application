@@ -1,0 +1,69 @@
+extends layout
+block content
+  main.typeInstance
+    div.typeInstanceContainer
+      header.moveNameHeader
+        h3=name
+      div.typeInstanceDetails
+        div.typeInstanceDetail.doubleDamageFrom
+          div.slider.ddfSlider
+            p Double Damage From
+            div.arrowImageWrapper
+              img(src='/images/downArrow.svg')
+          div.content.ddfContent
+            ul
+              each damageType in ddf
+                li
+                  a(href=damageType.url) #{damageType.name}
+        div.typeInstanceDetail.doubleDamageTo
+          div.slider.ddtSlider
+            p Double Damage To
+            div.arrowImageWrapper
+              img(src='/images/downArrow.svg')
+          div.content.ddtContent
+            ul
+              each damageType in ddt
+                li
+                  a(href=damageType.url) #{damageType.name}
+        div.typeInstanceDetail.halfDamageFrom
+          div.slider.hdfSlider
+            p Half Damage From
+            div.arrowImageWrapper
+              img(src='/images/downArrow.svg')
+          div.content.hdfContent
+            ul
+              each damageType in hdf
+                li
+                  a(href=damageType.url) #{damageType.name}
+        div.typeInstanceDetail.halfDamageTo
+          div.slider.hdtSlider
+            p Half Damage To
+            div.arrowImageWrapper
+              img(src='/images/downArrow.svg')
+          div.content.hdtContent
+            ul
+              each damageType in hdt
+                li
+                  a(href=damageType.url) #{damageType.name}
+        div.typeInstanceDetail.noDamageFrom
+          div.slider.ndfSlider
+            p No Damage From
+            div.arrowImageWrapper
+              img(src='/images/downArrow.svg')
+          div.content.ndfContent
+            ul
+              each damageType in ndf
+                li
+                  a(href=damageType.url) #{damageType.name}
+        div.typeInstanceDetail.noDamageTo
+          div.slider.ndtSlider
+            p No Damage To
+            div.arrowImageWrapper
+              img(src='/images/downArrow.svg')
+          div.content.ndtContent
+            ul
+              each damageType in ndt
+                li
+                  a(href=damageType.url) #{damageType.name}
+
+  script(src="/javascripts/typeInstance.js")

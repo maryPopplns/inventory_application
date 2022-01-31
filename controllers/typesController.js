@@ -25,3 +25,54 @@ exports.types_get = function (req, res, next) {
     })
     .catch((error) => logger.error(error));
 };
+
+exports.types_instance_get = function (req, res, next) {
+  const id = req.params.id;
+  Type.findById(id)
+    .populate(
+      'doubleDamageFrom doubleDamageTo halfDamageFrom halfDamageTo noDamageFrom noDamageTo'
+    )
+    .then(
+      ({
+        name,
+        doubleDamageFrom,
+        doubleDamageTo,
+        halfDamageFrom,
+        halfDamageTo,
+        noDamageFrom,
+        noDamageTo,
+      }) => {
+        const nameCap = Array.from(name)
+          .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+          .join('');
+        const ddf = doubleDamageFrom.map(({ name, url }) => {
+          return { name, url };
+        });
+        const ddt = doubleDamageTo.map(({ name, url }) => {
+          return { name, url };
+        });
+        const hdf = halfDamageFrom.map(({ name, url }) => {
+          return { name, url };
+        });
+        const hdt = halfDamageTo.map(({ name, url }) => {
+          return { name, url };
+        });
+        const ndf = noDamageFrom.map(({ name, url }) => {
+          return { name, url };
+        });
+        const ndt = noDamageTo.map(({ name, url }) => {
+          return { name, url };
+        });
+        res.render('typeInstance', {
+          name: nameCap,
+          ddf,
+          ddt,
+          hdf,
+          hdt,
+          ndf,
+          ndt,
+        });
+      }
+    )
+    .catch((error) => logger.error(error));
+};

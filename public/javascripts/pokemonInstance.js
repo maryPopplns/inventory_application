@@ -29,4 +29,4 @@
   // };
   // ddfSlider.addEventListener('click', ddfHandler);
 })();
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=pokemonInstance.js.map
