@@ -27,6 +27,7 @@ $extralightred: #e67474;
 $darkblue: #4a57b9;
 $lightblue: #6e77c2;
 $yellow: #ffea60;
+$darkyellow: #e2c613;
 
 // [ MIXINS ]
 @mixin mainContent {
@@ -91,7 +92,8 @@ main.home {
     height: 7rem;
     width: 10rem;
     margin: 1rem;
-    background-color: #ffa2a2;
+    background-color: $darkyellow;
+    border-radius: 0.5rem;
   }
   ul li a {
     display: flex;
@@ -123,7 +125,8 @@ main.pokemon {
     width: 20rem;
     text-decoration: none;
     color: black;
-    border: 1px solid black;
+    background-color: $darkyellow;
+    border-radius: 0.5rem;
     margin: 1rem;
     header {
       display: flex;
@@ -178,7 +181,7 @@ main.pokemon {
   }
 }
 
-// [ POKEMON MOVES ]
+// [ MOVES ROUTE ]
 main.moves {
   @include mainContent();
   ul {
@@ -187,8 +190,9 @@ main.moves {
   ul li {
     height: 14rem;
     width: 11rem;
-    border: 1px solid black;
     margin: 1rem;
+    background-color: $darkyellow;
+    border-radius: 0.5rem;
   }
   ul li a {
     text-decoration: none;
@@ -221,7 +225,8 @@ main.types {
     height: 8rem;
     width: 8rem;
     margin: 1rem;
-    border: 1px solid black;
+    background-color: $darkyellow;
+    border-radius: 0.5rem;
   }
   ul li a {
     text-decoration: none;
@@ -282,7 +287,8 @@ main.pokemonInstance {
     display: flex;
     flex-direction: column;
     width: 40rem;
-    border: 5px solid black;
+    background-color: $darkyellow;
+    border-radius: 0.5rem;
     // [ POKEMON IMAGES ]
     div.images {
       display: flex;
@@ -300,6 +306,7 @@ main.pokemonInstance {
       margin: 1rem 0;
       div {
         display: flex;
+        align-items: center;
       }
       div:nth-child(-n + 8) {
         margin-bottom: 0.5rem;
@@ -385,7 +392,8 @@ main.moveInstance {
     }
     div.moveInstanceDetails {
       width: 20rem;
-      border: 1px solid black;
+      background-color: $darkyellow;
+      border-radius: 0.5rem;
       div.details {
         display: flex;
         margin: 0.25rem 0;
@@ -414,7 +422,12 @@ main.typeInstance {
       font-size: 2rem;
     }
     div.typeInstanceDetails {
-      width: 20rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 25rem;
+      background-color: $darkyellow;
+      border-radius: 0.5rem;
       div.typeInstanceDetail {
         display: flex;
         flex-direction: column;
@@ -423,6 +436,7 @@ main.typeInstance {
           justify-content: center;
           align-items: center;
           height: 3rem;
+          width: 20rem;
           margin: 1rem 0;
           border: 3px solid black;
           border-radius: 0.5rem;
