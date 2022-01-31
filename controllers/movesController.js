@@ -26,7 +26,7 @@ exports.moves_get = function (req, res, next) {
           };
         }
       );
-      // [ RENDER MOVES ]
+      // // [ RENDER MOVES ]
       res.render('moves', { moves: filteredMoves });
     })
     .catch((error) => logger.error(error));
@@ -34,13 +34,12 @@ exports.moves_get = function (req, res, next) {
 
 exports.moves_instance_get = function (req, res, next) {
   const id = req.params.id;
-  console.log('hola');
-  res.end();
-  // Move.findById(id)
-  //   .then((move) => {
-  //     logger.debug(move);
-  //     res.end();
-  //     // res.render('moveInstance', {})
-  //   })
-  //   .catch((error) => logger.error(error));
+  Move.findById(id)
+    .then(({ id, name, effect, power, pp }) => {
+      const nameCap = Array.from(name)
+        .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+        .join('');
+      res.render('moveInstance', { id, name: nameCap, effect, power, pp });
+    })
+    .catch((error) => logger.error(error));
 };

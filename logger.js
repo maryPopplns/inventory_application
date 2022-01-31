@@ -24,7 +24,7 @@ winston.addColors({
   debug: 'green',
 });
 
-exports.db = winston.createLogger({
+exports.dblogger = winston.createLogger({
   level: 'debug',
   transports: [
     new winston.transports.Console({

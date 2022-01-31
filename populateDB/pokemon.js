@@ -10,7 +10,7 @@ const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 const Move = require(path.join(__dirname, '../models/move'));
 // [ COMMAND LINE ]
 const chalk = require('chalk');
-const { db } = require(path.join(__dirname, '../logger'));
+const { dblogger } = require(path.join(__dirname, '../logger'));
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const argv = yargs(hideBin(process.argv)).argv;
@@ -73,7 +73,7 @@ async.waterfall(
           });
           callback(null, filteredData);
         })
-        .catch((err) => db.err(err));
+        .catch((err) => dblogger.err(err));
     },
     function (filteredData, callback) {
       // [ CREATE/INSERT DOCUMENTS ]
@@ -111,10 +111,10 @@ async.waterfall(
   ],
   function (err, results) {
     if (err) {
-      db.error(err);
+      dblogger.error(err);
       mongoose.connection.close();
     } else {
-      db.info(results);
+      dblogger.info(results);
       mongoose.connection.close();
     }
   }

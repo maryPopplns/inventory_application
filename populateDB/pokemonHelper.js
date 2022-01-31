@@ -7,7 +7,7 @@ require('dotenv').config();
 const Type = require(path.join(__dirname, '../models/type'));
 const Move = require(path.join(__dirname, '../models/move'));
 // [ COMMAND LINE ]
-const logger = require(path.join(__dirname, '../logger'));
+const { dblogger } = require(path.join(__dirname, '../logger'));
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const argv = yargs(hideBin(process.argv)).argv;
@@ -54,18 +54,20 @@ async.waterfall(
   function (err, result) {
     // [ SAVE DATA TO ids.json ]
     if (err) {
-      logger.error(err);
+      dblogger.error(err);
       mongoose.connection.close();
     } else {
       const { typeIds, moveIds } = result;
       const data = JSON.stringify({ moveIds, typeIds });
       fs.writeFile('./populateDB/ids.json', data, (err) => {
-        if (err) logger.error(err);
-        else {
-          logger.info('successfully wrote to ids.json');
+        if (err) {
+          dblogger.error(err);
+          mongoose.connection.close();
+        } else {
+          dblogger.info('successfully wrote to ids.json');
+          mongoose.connection.close();
         }
       });
-      mongoose.connection.close();
     }
   }
 );
