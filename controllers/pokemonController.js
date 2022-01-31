@@ -6,9 +6,7 @@ exports.pokemon_get = function (req, res, next) {
   // [ QUERY/FILTER POKEMON DATA ]
   Pokemon.find({})
     .populate('moves')
-    // .limit(1)
     .then((results) => {
-      //
       const filteredPokemonData = results.map(
         ({ id, name, pokeid, height, weight, moves, types, images, stats }) => {
           const nameCap = Array.from(name)
