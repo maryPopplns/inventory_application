@@ -58,4 +58,7 @@ block content
             each pokeType in pokeTypes
               li
                 a(href=pokeType.url) #{pokeType.name}
+    div.updateDeletePokemon
+      a(href=updateInstance) update #{name}
+      a(href=deleteInstance) delete #{name}
   script(src="/javascripts/pokemonInstance.js")

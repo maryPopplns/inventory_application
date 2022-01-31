@@ -28,6 +28,7 @@ $darkblue: #4a57b9;
 $lightblue: #6e77c2;
 $yellow: #ffea60;
 $darkyellow: #e2c613;
+$green: green;
 
 // [ MIXINS ]
 @mixin mainContent {
@@ -188,9 +189,10 @@ main.moves {
     @include flexWrap();
   }
   ul li {
-    height: 14rem;
-    width: 11rem;
+    height: 15rem;
+    width: 12rem;
     margin: 1rem;
+    padding: 0.5rem;
     background-color: $darkyellow;
     border-radius: 0.5rem;
   }
@@ -215,7 +217,7 @@ main.moves {
   }
 }
 
-// [ POKEMON TYPES ]
+// [ TYPES ROUTE ]
 main.types {
   @include mainContent();
   ul {
@@ -374,6 +376,18 @@ main.pokemonInstance {
       }
     }
   }
+  div.updateDeletePokemon {
+    margin-top: 2rem;
+    a {
+      margin: 0.75rem;
+      padding: 0.5rem 1rem;
+      color: black;
+      font-family: $open;
+      text-decoration: none;
+      background-color: $extralightred;
+      border-radius: 0.5rem;
+    }
+  }
 }
 
 // [ MOVE INSTANCE ]
@@ -392,6 +406,7 @@ main.moveInstance {
     }
     div.moveInstanceDetails {
       width: 20rem;
+      padding: 0.5rem;
       background-color: $darkyellow;
       border-radius: 0.5rem;
       div.details {

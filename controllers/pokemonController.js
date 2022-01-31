@@ -60,27 +60,47 @@ exports.pokemon_instance_get = function (req, res, next) {
   const id = req.params.id;
   Pokemon.findById(id)
     .populate('moves types')
-    .then(({ name, pokeid, height, weight, moves, stats, types, images }) => {
-      const nameCap = Array.from(name)
-        .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
-        .join('');
-      const filteredMoves = moves.map(({ name, url }) => {
-        return { name, url };
-      });
-      const filteredTypes = types.map(({ name, url }) => {
-        return { name, url };
-      });
-      // [ RENDER POKEMON INSTANCE ]
-      res.render('pokemonInstance', {
-        name: nameCap,
-        pokeid,
-        height,
-        weight,
-        moves: filteredMoves,
-        stats,
-        pokeTypes: filteredTypes,
-        images,
-      });
-    })
+    .then(
+      ({ id, name, pokeid, height, weight, moves, stats, types, images }) => {
+        const nameCap = Array.from(name)
+          .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+          .join('');
+        const filteredMoves = moves.map(({ name, url }) => {
+          return { name, url };
+        });
+        const filteredTypes = types.map(({ name, url }) => {
+          return { name, url };
+        });
+        const updateInstance = `${id}/update`;
+        const deleteInstance = `${id}/delete`;
+        // [ RENDER POKEMON INSTANCE ]
+        res.render('pokemonInstance', {
+          id,
+          name: nameCap,
+          pokeid,
+          height,
+          weight,
+          moves: filteredMoves,
+          stats,
+          pokeTypes: filteredTypes,
+          images,
+          updateInstance,
+          deleteInstance,
+        });
+      }
+    )
     .catch((error) => logger.error(error));
+};
+
+exports.pokemon_instance_update = function (req, res, next) {
+  const id = req.params.id;
+  Pokemon.find(id).then((result) => {
+    logger.debug(result);
+    res.end(id);
+  });
+};
+
+exports.pokemon_instance_delete = function (req, res, next) {
+  const id = req.params.id;
+  res.end(id);
 };

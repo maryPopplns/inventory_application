@@ -182,9 +182,10 @@ main.moves ul {
   align-content: flex-start;
 }
 main.moves ul li {
-  height: 14rem;
-  width: 11rem;
+  height: 15rem;
+  width: 12rem;
   margin: 1rem;
+  padding: 0.5rem;
   background-color: #e2c613;
   border-radius: 0.5rem;
 }
@@ -448,6 +449,18 @@ main.pokemonInstance div.infoContainer div.types div.open {
   display: flex;
   justify-content: center;
 }
+main.pokemonInstance div.updateDeletePokemon {
+  margin-top: 2rem;
+}
+main.pokemonInstance div.updateDeletePokemon a {
+  margin: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: black;
+  font-family: "Open Sans";
+  text-decoration: none;
+  background-color: #e67474;
+  border-radius: 0.5rem;
+}
 
 main.moveInstance {
   height: calc(100vh - 4rem);
@@ -469,6 +482,7 @@ main.moveInstance div.moveInstanceContainer header.moveInstanceHeader h2 {
 }
 main.moveInstance div.moveInstanceContainer div.moveInstanceDetails {
   width: 20rem;
+  padding: 0.5rem;
   background-color: #e2c613;
   border-radius: 0.5rem;
 }
