@@ -595,7 +595,7 @@ main.updatePokemonGet div.updatePokemonGetContainer {
 }
 main.updatePokemonGet div.updatePokemonGetContainer header h3 {
   margin: 2rem 0;
-  font: "Open Sans Bold";
+  font-family: "Open Sans Bold";
   font-size: 2rem;
 }
 main.updatePokemonGet div.updatePokemonGetContainer form {
@@ -603,14 +603,56 @@ main.updatePokemonGet div.updatePokemonGetContainer form {
   flex-direction: column;
   align-items: center;
   width: 20rem;
-  border: 2px solid black;
+  padding: 1rem;
+  background-color: #e2c613;
+  border-radius: 0.5rem;
 }
-main.updatePokemonGet div.updatePokemonGetContainer form div {
+main.updatePokemonGet div.updatePokemonGetContainer form div.updatePokeNoramlField {
   display: flex;
   justify-content: center;
+  margin-bottom: 0.25rem;
 }
-main.updatePokemonGet div.updatePokemonGetContainer form div label {
+main.updatePokemonGet div.updatePokemonGetContainer form div.updatePokeNoramlField label {
+  font-family: "Open Sans";
   width: 8rem;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.updatePokeNoramlField input {
+  font-family: "Open Sans";
+  text-indent: 0.25rem;
+  border: none;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 75%;
+  margin: 1rem 0;
+  border: 3px solid black;
+  border-radius: 0.5rem;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.slider p {
+  font-family: "Open Sans";
+  width: 5rem;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.slider div.arrowImageWrapper {
+  height: 100%;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.slider div.arrowImageWrapper img {
+  height: 100%;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  font: "Open Sans Bold";
+  border: none;
+  background-color: #e67474;
 }
 
 main.error {

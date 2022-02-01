@@ -509,7 +509,7 @@ main.updatePokemonGet {
     header {
       h3 {
         margin: 2rem 0;
-        font: $openBold;
+        font-family: $openBold;
         font-size: 2rem;
       }
     }
@@ -518,13 +518,55 @@ main.updatePokemonGet {
       flex-direction: column;
       align-items: center;
       width: 20rem;
-      border: 2px solid black;
-      div {
+      padding: 1rem;
+      background-color: $darkyellow;
+      border-radius: 0.5rem;
+      div.updatePokeNoramlField {
         display: flex;
         justify-content: center;
+        margin-bottom: 0.25rem;
+        label {
+          font-family: $open;
+          width: 8rem;
+        }
+        input {
+          font-family: $open;
+          text-indent: 0.25rem;
+          border: none;
+        }
       }
-      div label {
-        width: 8rem;
+      div.checkboxContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        div.slider {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 3rem;
+          width: 75%;
+          margin: 1rem 0;
+          border: 3px solid black;
+          border-radius: 0.5rem;
+          p {
+            font-family: $open;
+            width: 5rem;
+          }
+          div.arrowImageWrapper {
+            height: 100%;
+          }
+          div.arrowImageWrapper img {
+            height: 100%;
+          }
+        }
+      }
+      button {
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+        font: $openBold;
+        border: none;
+        background-color: $extralightred;
       }
     }
   }
