@@ -92,15 +92,26 @@ exports.pokemon_instance_get = function (req, res, next) {
     .catch((error) => logger.error(error));
 };
 
-exports.pokemon_instance_update = function (req, res, next) {
+exports.pokemon_instance_update_get = function (req, res, next) {
   const id = req.params.id;
-  Pokemon.find(id).then((result) => {
-    logger.debug(result);
-    res.end(id);
-  });
+  Pokemon.findById(id)
+    .populate('moves types')
+    .then(({ name, pokeid, height, weight, moves, stats, types, images }) => {
+      logger.debug(moves);
+      logger.debug(types);
+      res.render('updatePokemonGet', {
+        name,
+        pokeid,
+        height,
+        weight,
+        stats,
+        images,
+      });
+    })
+    .catch((error) => logger.error(error));
 };
 
-exports.pokemon_instance_delete = function (req, res, next) {
+exports.pokemon_instance_delete_get = function (req, res, next) {
   const id = req.params.id;
   res.end(id);
 };

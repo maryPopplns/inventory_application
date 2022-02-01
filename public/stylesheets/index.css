@@ -60,6 +60,7 @@ main.home {
 }
 main.home ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -96,6 +97,7 @@ main.pokemon {
 }
 main.pokemon ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -125,6 +127,7 @@ main.pokemon ul li a header h1 {
   font-family: "Open Sans";
 }
 main.pokemon ul li a header h1.name {
+  font-family: "Open Sans Bold";
   font-size: 1.5rem;
 }
 main.pokemon ul li a div img {
@@ -178,6 +181,7 @@ main.moves {
 }
 main.moves ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -217,6 +221,7 @@ main.types {
 }
 main.types ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -239,6 +244,8 @@ main.types ul li a div {
   width: 8rem;
 }
 main.types ul li a div p {
+  font-family: "Open Sans Bold";
+  font-size: 1.2rem;
   margin-top: 0.5rem;
 }
 main.types ul li a div div.imageContainer {
@@ -426,6 +433,7 @@ main.pokemonInstance div.infoContainer div.types div.content {
 main.pokemonInstance div.infoContainer div.moves div.content ul,
 main.pokemonInstance div.infoContainer div.types div.content ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
@@ -525,6 +533,7 @@ main.typeInstance div.typeInstanceContainer div.typeInstanceDetails {
 main.typeInstance div.typeInstanceContainer div.typeInstanceDetails div.typeInstanceDetail {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 main.typeInstance div.typeInstanceContainer div.typeInstanceDetails div.typeInstanceDetail div.slider {
   display: flex;
@@ -551,6 +560,7 @@ main.typeInstance div.typeInstanceContainer div.typeInstanceDetails div.typeInst
 }
 main.typeInstance div.typeInstanceContainer div.typeInstanceDetails div.typeInstanceDetail div.content ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
@@ -572,6 +582,12 @@ main.typeInstance div.typeInstanceContainer div.typeInstanceDetails div.typeInst
   justify-content: center;
 }
 
+main.updatePokemonGet {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  background-color: #ffea60;
+  overflow-y: auto;
+}
 main.error {
   height: calc(100vh - 4rem);
   width: 100%;

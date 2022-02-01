@@ -39,6 +39,7 @@ $green: green;
 }
 @mixin flexWrap {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -142,6 +143,7 @@ main.pokemon {
         font-family: $open;
       }
       h1.name {
+        font-family: $openBold;
         font-size: 1.5rem;
       }
     }
@@ -241,6 +243,8 @@ main.types {
       width: 8rem;
     }
     div p {
+      font-family: $openBold;
+      font-size: 1.2rem;
       margin-top: 0.5rem;
     }
     div div.imageContainer {
@@ -446,6 +450,7 @@ main.typeInstance {
       div.typeInstanceDetail {
         display: flex;
         flex-direction: column;
+        align-items: center;
         div.slider {
           display: flex;
           justify-content: center;
@@ -494,6 +499,12 @@ main.typeInstance {
   }
 }
 
+// [ UPDATE POKEMON GET ]
+main.updatePokemonGet {
+  @include mainContent();
+  div.updatePokemonGetContainer {
+  }
+}
 // [ ERROR PAGE ]
 main.error {
   @include mainContent();

@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "wmpost": "curl -o /dev/null http://localhost:3000/pokemon/61f80d2b5ec26341607aed6b/update",
     "git": "git add . && git commit && git push origin $(git rev-parse --abbrev-ref HEAD) && echo '\n' && echo $(tput setaf 2)'commited: ' $(tput setaf 1)$(date) && echo '\n'",
-    "wmpost": "curl -o /dev/null http://localhost:3000/pokemon/61f80d2b5ec26341607aed6b",
     "-": "<---------------------[ SERVERS ]------------------------------------->",
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
@@ -13,12 +13,12 @@
     "serverstart": "DEBUG=inventory-application:* npm run devstart",
     "--": "<--------------------[ POPULATE DB ]--------------------------------->",
     "popmoves": "sh populateDB/scripts/populateMoves.sh",
-    "poppokemon": "sh populateDB/scripts/populatePokemon.sh",
+    "popall": "npm run poptypes && npm run popmoves && npm run poppokemon",
     "poptypes": "node populateDB/popTypeNames.js && node populateDB/popTypeDetails.js",
-    "popall": "npm run poptypes && npm run popmoves && node populateDB/pokemonHelper.js && npm run poppokemon",
+    "poppokemon": "node populateDB/pokemonHelper.js && sh populateDB/scripts/populatePokemon.sh",
     "---": "<-------------------[ BUILD ]--------------------------------------->",
-    "babel": "npx babel src --watch --out-dir public --source-maps",
-    "sass": "sass --watch src/stylesheets:public/stylesheets"
+    "sass": "sass --watch src/stylesheets:public/stylesheets",
+    "babel": "npx babel src --watch --out-dir public --source-maps"
   },
   "dependencies": {
     "async": "^3.2.3",
