@@ -588,6 +588,31 @@ main.updatePokemonGet {
   background-color: #ffea60;
   overflow-y: auto;
 }
+main.updatePokemonGet div.updatePokemonGetContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main.updatePokemonGet div.updatePokemonGetContainer header h3 {
+  margin: 2rem 0;
+  font: "Open Sans Bold";
+  font-size: 2rem;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  border: 2px solid black;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div {
+  display: flex;
+  justify-content: center;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div label {
+  width: 8rem;
+}
+
 main.error {
   height: calc(100vh - 4rem);
   width: 100%;

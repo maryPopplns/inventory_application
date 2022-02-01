@@ -92,15 +92,19 @@ exports.pokemon_instance_get = function (req, res, next) {
     .catch((error) => logger.error(error));
 };
 
+// [ POKE INSTANCE UPDATE GET ]
 exports.pokemon_instance_update_get = function (req, res, next) {
   const id = req.params.id;
   Pokemon.findById(id)
     .populate('moves types')
     .then(({ name, pokeid, height, weight, moves, stats, types, images }) => {
-      logger.debug(moves);
-      logger.debug(types);
+      const nameCap = Array.from(name)
+        .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+        .join('');
+      logger.debug(stats);
+      // TODO removing/adding 4 types/moves
       res.render('updatePokemonGet', {
-        name,
+        name: nameCap,
         pokeid,
         height,
         weight,

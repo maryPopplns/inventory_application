@@ -503,6 +503,30 @@ main.typeInstance {
 main.updatePokemonGet {
   @include mainContent();
   div.updatePokemonGetContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    header {
+      h3 {
+        margin: 2rem 0;
+        font: $openBold;
+        font-size: 2rem;
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20rem;
+      border: 2px solid black;
+      div {
+        display: flex;
+        justify-content: center;
+      }
+      div label {
+        width: 8rem;
+      }
+    }
   }
 }
 // [ ERROR PAGE ]

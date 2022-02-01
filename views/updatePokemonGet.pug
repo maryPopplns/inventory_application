@@ -1,0 +1,36 @@
+extends layout
+block content
+  main.updatePokemonGet
+    div.updatePokemonGetContainer
+      header
+        h3=name
+      form(method='POST' action='')
+        div
+          label(for='pokemonInstanceName') Name:
+          input(id='pokemonInstanceName' type='text' value=name)
+        div
+          label(for='pokemonInstanceID') ID:
+          input(id='pokemonInstanceID' type='number' value=pokeid)
+        div
+          label(for='pokemonInstanceHeight') Height:
+          input(id='pokemonInstanceHeight' type='number' value=height)
+        div
+          label(for='pokemonInstanceWeight') Weight:
+          input(id='pokemonInstanceWeight' type='number' value=weight)
+        div
+          label(for='pokemonInstanceHP') HP:
+          input(id='pokemonInstanceHP' type='number' value=stats.hp)
+        div
+          label(for='pokemonInstanceAttack') Attack:
+          input(id='pokemonInstanceAttack' type='number' value=stats.attack)
+        div
+          label(for='pokemonInstanceSpecialAttack') Special Attack:
+          input(id='pokemonInstanceSpecialAttack' type='number' value=stats['special-attack'])
+        div
+          label(for='pokemonInstanceSpecialDefense') Special Defense:
+          input(id='pokemonInstanceSpecialDefense' type='number' value=stats['special-defense'])
+        div
+          label(for='pokemonInstanceSpeed') Speed:
+          input(id='pokemonInstanceSpeed' type='number' value=stats.speed)
+          //-  TODO moves types
+        button submit
