@@ -128,7 +128,8 @@ exports.pokemon_instance_update_get = function (req, res, next) {
                 )
                 .join('');
               return {
-                name: nameCap,
+                name,
+                nameCap,
                 id: `${name}TypeCheckbox`,
                 checked: answer,
               };
@@ -185,7 +186,9 @@ exports.pokemon_instance_update_get = function (req, res, next) {
 // [ UPDATE POKEMON POST ]
 exports.pokemon_instance_update_post = function (req, res, next) {
   const id = req.params.id;
-  res.render('updatePokemonPost', { name: 'name' });
+  logger.debug(req.body.name);
+  res.end();
+  // res.render('updatePokemonPost', { name: 'spencer' });
 };
 
 exports.pokemon_instance_delete_get = function (req, res, next) {

@@ -7,31 +7,31 @@ block content
       form(method='POST' action='')
         div.updatePokeNoramlField
           label(for='pokemonInstanceName') Name:
-          input(id='pokemonInstanceName' type='text' value=name required='true')
+          input(id='pokemonInstanceName' type='text' name='name' value=name required='true')
         div.updatePokeNoramlField
           label(for='pokemonInstanceID') ID:
-          input(id='pokemonInstanceID' type='number' value=(pokeid === undefined ? '' : pokeid))
+          input(id='pokemonInstanceID' type='number' name='id' value=(pokeid === undefined ? '' : pokeid))
         div.updatePokeNoramlField
           label(for='pokemonInstanceHeight') Height:
-          input(id='pokemonInstanceHeight' type='number' value=(height === undefined ? '' : height))
+          input(id='pokemonInstanceHeight' type='number' name='height' value=(height === undefined ? '' : height))
         div.updatePokeNoramlField
           label(for='pokemonInstanceWeight') Weight:
-          input(id='pokemonInstanceWeight' type='number' value=(weight === undefined ? '' : weight))
+          input(id='pokemonInstanceWeight' type='number' name='weight' value=(weight === undefined ? '' : weight))
         div.updatePokeNoramlField
           label(for='pokemonInstanceHP') HP:
-          input(id='pokemonInstanceHP' type='number' value=(stats.hp === undefined ? '' : stats.hp))
+          input(id='pokemonInstanceHP' type='number' name='hp' value=(stats.hp === undefined ? '' : stats.hp))
         div.updatePokeNoramlField
           label(for='pokemonInstanceAttack') Attack:
-          input(id='pokemonInstanceAttack' type='number' value=(stats.attack === undefined ? '' : stats.attack))
+          input(id='pokemonInstanceAttack' type='number' name='attack' value=(stats.attack === undefined ? '' : stats.attack))
         div.updatePokeNoramlField
           label(for='pokemonInstanceSpecialAttack') Special Attack:
-          input(id='pokemonInstanceSpecialAttack' type='number' value=(stats['special-attack'] === undefined ? '' : stats['special-attack']))
+          input(id='pokemonInstanceSpecialAttack' type='number' name='special attack' value=(stats['special-attack'] === undefined ? '' : stats['special-attack']))
         div.updatePokeNoramlField
           label(for='pokemonInstanceSpecialDefense') Special Defense:
-          input(id='pokemonInstanceSpecialDefense' type='number' value=(stats['special-defense'] === undefined ? '' : stats['special-defense']))
+          input(id='pokemonInstanceSpecialDefense' type='number' name='special defense' value=(stats['special-defense'] === undefined ? '' : stats['special-defense']))
         div.updatePokeNoramlField
           label(for='pokemonInstanceSpeed') Speed:
-          input(id='pokemonInstanceSpeed' type='number' value=(stats.speed === undefined ? '' : stats.speed))
+          input(id='pokemonInstanceSpeed' type='number' name='speed' value=(stats.speed === undefined ? '' : stats.speed))
         //-  [ MOVES / TYPES ]
         div.checkboxContainer.updatePokemonTypesContainer
           div.slider.updatePokemonTypesSlider
@@ -41,7 +41,7 @@ block content
           div.content.updatePokemonTypesContent
               each oneType in allTypes
                 div
-                  label(for=oneType.id) #{oneType.name}
-                  input(id=oneType.id type='checkbox' checked=oneType.checked)
-        button submit
+                  label(for=oneType.id) #{oneType.nameCap}
+                  input(id=oneType.id type='checkbox' name='types' value=oneType.name checked=oneType.checked)
+        button(type='submit') submit
   script(src="/javascripts/updatePokemonGet.js")
