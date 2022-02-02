@@ -25,5 +25,8 @@ exports.home_get = function (req, res, next) {
       // [ RENDER GIF ANIMATIONS ]
       res.render('home', { data: filteredPokemonData });
     })
-    .catch((err) => logger.error(err));
+    .catch((err) => {
+      logger.error(err);
+      next(err);
+    });
 };

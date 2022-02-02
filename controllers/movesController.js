@@ -29,7 +29,10 @@ exports.moves_get = function (req, res, next) {
       // // [ RENDER MOVES ]
       res.render('moves', { moves: filteredMoves });
     })
-    .catch((error) => logger.error(error));
+    .catch((error) => {
+      logger.error(error);
+      next(error);
+    });
 };
 
 exports.moves_instance_get = function (req, res, next) {
@@ -41,5 +44,8 @@ exports.moves_instance_get = function (req, res, next) {
         .join('');
       res.render('moveInstance', { id, name: nameCap, effect, power, pp });
     })
-    .catch((error) => logger.error(error));
+    .catch((error) => {
+      logger.error(error);
+      next(error);
+    });
 };

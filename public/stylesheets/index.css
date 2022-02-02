@@ -642,7 +642,7 @@ main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer d
   width: 5rem;
 }
 main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.slider div.arrowImageWrapper {
-  height: 100%;
+  height: 80%;
 }
 main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.slider div.arrowImageWrapper img {
   height: 100%;

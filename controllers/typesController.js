@@ -23,7 +23,10 @@ exports.types_get = function (req, res, next) {
       logger.debug(names);
       res.render('types', { types: filteredTypes });
     })
-    .catch((error) => logger.error(error));
+    .catch((error) => {
+      logger.error(error);
+      next(error);
+    });
 };
 
 exports.types_instance_get = function (req, res, next) {
@@ -74,5 +77,8 @@ exports.types_instance_get = function (req, res, next) {
         });
       }
     )
-    .catch((error) => logger.error(error));
+    .catch((error) => {
+      logger.error(error);
+      next(error);
+    });
 };

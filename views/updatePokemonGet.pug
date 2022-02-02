@@ -38,10 +38,10 @@ block content
             p Types
             div.arrowImageWrapper
               img(src='/images/downArrow.svg')
-          div.updatePokemonTypesContent
-        //- div.checkboxContainer.updatePokemonMovesContainer
-        //-   div.slider.updatePokemonMovesSlider
-        //-   div.updatePokemonMovesContent
-
+          div.content.updatePokemonTypesContent
+              each oneType in allTypes
+                div.updatePokeNoramlField
+                  label(for=oneType.id) #{oneType.name}
+                  input(id=oneType.id type='checkbox' checked=oneType.checked)
         button submit
   script(src="/javascripts/updatePokemonGet.js")
