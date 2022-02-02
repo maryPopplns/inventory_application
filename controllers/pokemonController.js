@@ -1,9 +1,9 @@
 const path = require('path');
 const async = require('async');
-const { logger } = require(path.join(__dirname, '../logger'));
-const Pokemon = require(path.join(__dirname, '../models/pokemon'));
 const Type = require(path.join(__dirname, '../models/type'));
-const Move = require(path.join(__dirname, '../models/move'));
+const Pokemon = require(path.join(__dirname, '../models/pokemon'));
+const { logger } = require(path.join(__dirname, '../logger'));
+const { check, validationResult } = require('express-validator');
 
 exports.pokemon_get = function (req, res, next) {
   // [ QUERY/FILTER POKEMON DATA ]
@@ -184,12 +184,66 @@ exports.pokemon_instance_update_get = function (req, res, next) {
 };
 
 // [ UPDATE POKEMON POST ]
-exports.pokemon_instance_update_post = function (req, res, next) {
-  const id = req.params.id;
-  logger.debug(req.body.name);
-  res.end();
-  // res.render('updatePokemonPost', { name: 'spencer' });
-};
+exports.pokemon_instance_update_post = [
+  function (req, res, next) {
+    if (!(req.body.types instanceof Array)) {
+      if (typeof req.body.types === 'undefined') {
+        req.body.types = [];
+      } else {
+        req.body.types = new Array(req.body.types);
+      }
+    }
+    next();
+  },
+  // TODO post validation
+  check('name')
+    .trim()
+    .isLength({ min: 1, max: 20 })
+    .withMessage('Must be 1-20 characters long')
+    .escape(),
+  check('pokeid', 'Must be a number.').trim().isNumeric().escape(),
+  check('height', 'Must be a number.').trim().isNumeric().escape(),
+  check('weight', 'Must be a number.').trim().isNumeric().escape(),
+  check('hp', 'Must be a number.').trim().isNumeric().escape(),
+  check('attack', 'Must be a number.').trim().isNumeric().escape(),
+  check('specialAttack', 'Must be a number.').trim().isNumeric().escape(),
+  check('specialDefense', 'Must be a number.').trim().isNumeric().escape(),
+  check('speed', 'Must be a number.').trim().isNumeric().escape(),
+  check('types.*').escape(),
+  function (req, res, next) {
+    const id = req.params.id;
+    const {
+      name,
+      pokeid,
+      height,
+      weight,
+      hp,
+      attack,
+      specialAttack,
+      specialDefense,
+      speed,
+    } = req.body;
+    const errors = validationResult(req);
+    const stats = {
+      hp,
+      attack,
+      'special-attack': specialAttack,
+      'special-defense': specialDefense,
+      speed,
+    };
+    // if (!errors.isEmpty()) {}
+    // TODO get the types for the instance
+    const errorsArray = errors.array();
+    res.render('updatePokemonGet', {
+      name,
+      pokeid,
+      height,
+      weight,
+      stats,
+      errorsArray,
+    });
+  },
+];
 
 exports.pokemon_instance_delete_get = function (req, res, next) {
   const id = req.params.id;
