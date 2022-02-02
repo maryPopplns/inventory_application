@@ -40,7 +40,7 @@ block content
               img(src='/images/downArrow.svg')
           div.content.updatePokemonTypesContent
               each oneType in allTypes
-                div.updatePokeNoramlField
+                div
                   label(for=oneType.id) #{oneType.name}
                   input(id=oneType.id type='checkbox' checked=oneType.checked)
         button submit

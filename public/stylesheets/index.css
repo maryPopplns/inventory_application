@@ -647,6 +647,25 @@ main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer d
 main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.slider div.arrowImageWrapper img {
   height: 100%;
 }
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.content {
+  display: none;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.content div {
+  display: flex;
+  width: 50%;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.content div label {
+  width: 50%;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.content div input {
+  width: 50%;
+}
+main.updatePokemonGet div.updatePokemonGetContainer form div.checkboxContainer div.open {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
 main.updatePokemonGet div.updatePokemonGetContainer form button {
   padding: 0.5rem 1rem;
   margin-top: 1rem;

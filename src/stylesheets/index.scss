@@ -560,6 +560,25 @@ main.updatePokemonGet {
             height: 100%;
           }
         }
+        div.content {
+          display: none;
+          div {
+            display: flex;
+            width: 50%;
+            label {
+              width: 50%;
+            }
+            input {
+              width: 50%;
+            }
+          }
+        }
+        div.open {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          align-content: flex-start;
+        }
       }
       button {
         padding: 0.5rem 1rem;
