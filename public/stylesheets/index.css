@@ -674,6 +674,13 @@ main.updatePokemonGet div.updatePokemonGetContainer form button {
   background-color: #e67474;
 }
 
+main.updatePokemonPost {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  background-color: #ffea60;
+  overflow-y: auto;
+}
+
 main.error {
   height: calc(100vh - 4rem);
   width: 100%;

@@ -590,6 +590,11 @@ main.updatePokemonGet {
     }
   }
 }
+
+// [ UPDATE POKEMON POST ]
+main.updatePokemonPost {
+  @include mainContent();
+}
 // [ ERROR PAGE ]
 main.error {
   @include mainContent();

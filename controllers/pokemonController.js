@@ -160,6 +160,7 @@ exports.pokemon_instance_update_get = function (req, res, next) {
           .catch((error) => callback(error));
       },
     ],
+    // [ ERROR HANDLING / RENDER UPDATE ROUTE ]
     function (error, allTypes, pokemonInstance) {
       if (error) {
         logger.error(error);
@@ -179,6 +180,12 @@ exports.pokemon_instance_update_get = function (req, res, next) {
       }
     }
   );
+};
+
+// [ UPDATE POKEMON POST ]
+exports.pokemon_instance_update_post = function (req, res, next) {
+  const id = req.params.id;
+  res.render('updatePokemonPost', { name: 'name' });
 };
 
 exports.pokemon_instance_delete_get = function (req, res, next) {
