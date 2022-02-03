@@ -707,6 +707,7 @@ main.pokemonInstanceDelete form div.formContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 2rem;
   border: 3px solid black;
 }
@@ -717,6 +718,15 @@ main.pokemonInstanceDelete form div.formContainer div.inputContainer label {
 main.pokemonInstanceDelete form div.formContainer div.inputContainer input {
   font-family: "Open Sans";
   text-indent: 0.25rem;
+}
+main.pokemonInstanceDelete form div.formContainer div.buttonContainer {
+  margin-top: 1rem;
+}
+main.pokemonInstanceDelete form div.formContainer div.buttonContainer button {
+  font-family: "Open Sans";
+  background-color: #e67474;
+  padding: 0.5rem 1.25rem;
+  border: none;
 }
 
 main.error {
