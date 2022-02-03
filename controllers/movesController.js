@@ -26,7 +26,7 @@ exports.moves_get = function (req, res, next) {
           };
         }
       );
-      // // [ RENDER MOVES ]
+      // [ RENDER MOVES ]
       res.render('moves', { moves: filteredMoves });
     })
     .catch((error) => {
@@ -35,6 +35,7 @@ exports.moves_get = function (req, res, next) {
     });
 };
 
+// [ MOVE INSTANCE ]
 exports.moves_instance_get = function (req, res, next) {
   const id = req.params.id;
   Move.findById(id)
@@ -42,10 +43,33 @@ exports.moves_instance_get = function (req, res, next) {
       const nameCap = Array.from(name)
         .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
         .join('');
-      res.render('moveInstance', { id, name: nameCap, effect, power, pp });
+      const updateInstance = `${id}/update`;
+      const deleteInstance = `${id}/delete`;
+      res.render('moveInstance', {
+        id,
+        name,
+        nameCap,
+        effect,
+        power,
+        pp,
+        updateInstance,
+        deleteInstance,
+      });
     })
     .catch((error) => {
       logger.error(error);
       next(error);
     });
+};
+
+// [ UPDATE INSTANCE GET ]
+exports.moves_instance_update_get = function (req, res, next) {
+  // TODO query move instance
+  res.end('update');
+};
+
+// [ UPDATE INSTANCE POST ]
+exports.moves_instance_update_post = function (req, res, next) {
+  res.end('upate post');
+  //
 };

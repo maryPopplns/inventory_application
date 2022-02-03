@@ -3,7 +3,7 @@ block content
   main.moveInstance
     div.moveInstanceContainer
       header.moveInstanceHeader
-        h2=name
+        h2=nameCap
       div.moveInstanceDetails
         div.details
           p Power:
@@ -14,3 +14,8 @@ block content
         div.details
           p Effects:
           p=effect
+    div.updateDeleteMove
+      div.updateDeleteMoveButtons
+        a(href=updateInstance) update #{name}
+        a(href=deleteInstance) delete #{name}
+  script(src="/javascripts/pokemonInstance.js")
