@@ -195,7 +195,7 @@ exports.pokemon_instance_update_post = [
     }
     next();
   },
-  // TODO post validation
+  // [ FORM VALIDATION ]
   check('name')
     .trim()
     .isLength({ min: 1, max: 20 })
@@ -221,8 +221,10 @@ exports.pokemon_instance_update_post = [
       attack,
       specialAttack,
       specialDefense,
+      types,
       speed,
     } = req.body;
+    logger.debug(types);
     const errors = validationResult(req);
     const stats = {
       hp,
@@ -231,17 +233,22 @@ exports.pokemon_instance_update_post = [
       'special-defense': specialDefense,
       speed,
     };
-    // if (!errors.isEmpty()) {}
-    // TODO get the types for the instance
-    const errorsArray = errors.array();
-    res.render('updatePokemonGet', {
-      name,
-      pokeid,
-      height,
-      weight,
-      stats,
-      errorsArray,
-    });
+    if (!errors.isEmpty()) {
+      const errorsArray = errors.array();
+      res.render('updatePokemonGet', {
+        name,
+        pokeid,
+        height,
+        weight,
+        stats,
+        errorsArray,
+      });
+    } else {
+      // TODO get object IDS for all types
+      // trade out names for id and update the database
+    }
+    //
+    res.end();
   },
 ];
 

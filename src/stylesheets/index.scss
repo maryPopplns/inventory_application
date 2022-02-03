@@ -588,6 +588,16 @@ main.updatePokemonGet {
         background-color: $extralightred;
       }
     }
+    ul.errors {
+      margin-top: 1rem;
+      li {
+        display: flex;
+        margin-bottom: 0.5rem;
+      }
+      li div:nth-child(1) {
+        margin-right: 1rem;
+      }
+    }
   }
 }
 

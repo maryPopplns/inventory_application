@@ -673,6 +673,16 @@ main.updatePokemonGet div.updatePokemonGetContainer form button {
   border: none;
   background-color: #e67474;
 }
+main.updatePokemonGet div.updatePokemonGetContainer ul.errors {
+  margin-top: 1rem;
+}
+main.updatePokemonGet div.updatePokemonGetContainer ul.errors li {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+main.updatePokemonGet div.updatePokemonGetContainer ul.errors li div:nth-child(1) {
+  margin-right: 1rem;
+}
 
 main.updatePokemonPost {
   height: calc(100vh - 4rem);
