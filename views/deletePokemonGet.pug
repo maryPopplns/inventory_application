@@ -8,6 +8,9 @@ block content
       div.formContainer
         div.inputContainer
           label(for='deletePokemon') Password:
-          input(id='deletePokemon' type='text' required='true' placeholder='password')
+          input(id='deletePokemon' type='text' name='deletePokemon' placeholder='password')
         div.buttonContainer
           button(type='submit') submit
+    if errors
+      div.passwordErrorContainer
+        h2 Incorrect Password

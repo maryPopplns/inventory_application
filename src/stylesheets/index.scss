@@ -644,6 +644,15 @@ main.pokemonInstanceDelete {
       }
     }
   }
+  div.passwordErrorContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    h2 {
+      font-family: $openBold;
+      color: $darkred;
+    }
+  }
 }
 // [ ERROR PAGE ]
 main.error {

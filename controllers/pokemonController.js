@@ -309,7 +309,7 @@ exports.pokemon_instance_update_post = [
 exports.pokemon_instance_delete_get = function (req, res, next) {
   Pokemon.findById(req.params.id)
     .then(({ name }) => {
-      res.render('deletePokemonGet', { name });
+      res.render('deletePokemonGet', { name, errors: false });
     })
     .catch((error) => {
       logger.error(error);
@@ -317,6 +317,28 @@ exports.pokemon_instance_delete_get = function (req, res, next) {
     });
 };
 
-exports.pokemon_instance_delete_post = function (req, res, next) {
-  res.end(req.params.id);
-};
+exports.pokemon_instance_delete_post = [
+  check('deletePokemon').trim().escape(),
+  function (req, res, next) {
+    if (req.body.deletePokemon !== process.env.DELETE_PASSWORD) {
+      Pokemon.findById(req.params.id)
+        .then(({ name }) => {
+          res.render('deletePokemonGet', { name, errors: true });
+        })
+        .catch((error) => {
+          logger.error(error);
+          next(error);
+        });
+    } else {
+      // TODO delete pokemon
+      Pokemon.findByIdAndDelete(req.params.id)
+        .then(() => {
+          res.redirect('/pokemon');
+        })
+        .catch((error) => {
+          logger.error(error);
+          next(error);
+        });
+    }
+  },
+];
