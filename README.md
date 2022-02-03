@@ -2,6 +2,12 @@
  PokeInventory
 </h1>
 
+<h1 align="center" >
+ Project
+</h1>
+
+Scraped pokeapi for data from the first generation of the game. Allows for editing of specific information on pokemon, moves, and types. Deleting any informaion is password protected.
+
 <h3 >
 Schema
 </h3>
@@ -9,9 +15,8 @@ Schema
 ![inventory models](public/images/pokeinventory_schema.png)
 
 <h3 >
- Learned
+ Site Map
 </h3>
-
 ![style guide](public/images/siteMap.png)
 
 <h2 align="center" >
