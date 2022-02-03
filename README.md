@@ -1,18 +1,20 @@
-# poke inventory
+<h1 align="center" >
+ PokeInventory
+</h1>
 
-#### schema
+## schema
 
 ![inventory models](public/images/pokeinventory_schema.png)
 
-#### style guide
+## style guide
 
 ![style guide](public/images/styleGuide.png)
 
 <!-- TODO fix colors -->
 
-#### home page
+## Site Map
 
-![style guide](public/images/homepage.png)
+![style guide](public/images/siteMap.png)
 
 ### learned
 
