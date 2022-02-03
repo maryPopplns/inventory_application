@@ -64,8 +64,17 @@ exports.moves_instance_get = function (req, res, next) {
 
 // [ UPDATE INSTANCE GET ]
 exports.moves_instance_update_get = function (req, res, next) {
-  // TODO query move instance
-  res.end('update');
+  Move.findById(req.params.id)
+    .then(({ name, effect, power, pp }) => {
+      const nameCap = Array.from(name)
+        .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+        .join('');
+      res.render('moveInstanceGet', { name: nameCap, effect, power, pp });
+    })
+    .catch((error) => {
+      logger.error(error);
+      next(error);
+    });
 };
 
 // [ UPDATE INSTANCE POST ]

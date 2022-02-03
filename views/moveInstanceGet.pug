@@ -1,0 +1,21 @@
+extends layout
+block content
+  main.moveInstanceUpdate
+    div.moveInstanceUpdateContainer
+      header
+        h3=name
+      form(method='POST' action='')
+        div.inputContainer
+          label(for='moveName') Name:
+          input(id='moveName' name='moveName' required='true' value=(name === undefined ? '' : name))
+        div.inputContainer
+          label(for='movePower') Power:
+          input(id='movePower' name='movePower' required='true' value=(power === undefined ? '' : power))
+        div.inputContainer
+          label(for='movePP') PP:
+          input(id='movePP' name='movePP' required='true' value=(pp === undefined ? '' : pp))
+        div.inputContainer
+          label(for='moveEffect') Effect:
+          input(id='moveEffect' name='moveEffect' required='true' value=(effect === undefined ? '' : effect))
+        div.submitButton
+          button(type='submit') Submit

@@ -672,6 +672,59 @@ main.pokemonInstanceDelete {
     }
   }
 }
+
+// [ MOVE INSTANCE UPDATE ]
+main.moveInstanceUpdate {
+  @include mainContent();
+  div.moveInstanceUpdateContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    header {
+      margin: 2rem 0;
+      h3 {
+        font-family: $openBold;
+        font-size: 2rem;
+      }
+    }
+    form {
+      width: 20rem;
+      padding: 1rem;
+      background-color: $darkyellow;
+      border-radius: 0.5rem;
+      div.inputContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.25rem;
+        label {
+          font-family: $open;
+          width: 30%;
+        }
+        input {
+          font-family: $open;
+          border: none;
+          width: 70%;
+          text-indent: 0.25rem;
+        }
+      }
+      div.submitButton {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        button {
+          font-family: $open;
+          background-color: $extralightred;
+          padding: 0.5rem 1.25rem;
+          border: none;
+          border-radius: 0.5rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
 // [ ERROR PAGE ]
 main.error {
   @include mainContent();

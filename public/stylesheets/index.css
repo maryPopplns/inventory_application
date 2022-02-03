@@ -756,6 +756,60 @@ main.pokemonInstanceDelete div.passwordErrorContainer h2 {
   color: #db2d2d;
 }
 
+main.moveInstanceUpdate {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  background-color: #ffea60;
+  overflow-y: auto;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer header {
+  margin: 2rem 0;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer header h3 {
+  font-family: "Open Sans Bold";
+  font-size: 2rem;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer form {
+  width: 20rem;
+  padding: 1rem;
+  background-color: #e2c613;
+  border-radius: 0.5rem;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer form div.inputContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer form div.inputContainer label {
+  font-family: "Open Sans";
+  width: 30%;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer form div.inputContainer input {
+  font-family: "Open Sans";
+  border: none;
+  width: 70%;
+  text-indent: 0.25rem;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer form div.submitButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+main.moveInstanceUpdate div.moveInstanceUpdateContainer form div.submitButton button {
+  font-family: "Open Sans";
+  background-color: #e67474;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
 main.error {
   height: calc(100vh - 4rem);
   width: 100%;
