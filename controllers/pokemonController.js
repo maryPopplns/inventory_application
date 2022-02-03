@@ -263,9 +263,40 @@ exports.pokemon_instance_update_post = [
           });
         } else {
           // [ UPDATE POKEMON ]
-          // result
-          logger.debug(result);
-          res.end();
+          Pokemon.findById(req.params.id)
+            .then(({ moves }) => {
+              const ids = {};
+              result.forEach(({ id, name }) => {
+                ids[name] = id;
+              });
+              const typeIDs = types.map((type) => ids[type]);
+              const pokemon = new Pokemon({
+                name,
+                pokeid,
+                height,
+                weight,
+                stats,
+                moves,
+                types: typeIDs,
+                _id: req.params.id,
+              });
+              Pokemon.findByIdAndUpdate(
+                req.params.id,
+                pokemon,
+                {},
+                function (error, thepokemon) {
+                  if (error) {
+                    next(error);
+                  } else {
+                    res.redirect(thepokemon.url);
+                  }
+                }
+              );
+            })
+            .catch((error) => {
+              logger.erro(error);
+              next(error);
+            });
         }
       })
       .catch((error) => {
