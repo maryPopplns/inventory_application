@@ -1,8 +1,10 @@
 const path = require('path');
+const async = require('async');
 const { logger } = require(path.join(__dirname, '../logger'));
 const Type = require(path.join(__dirname, '../models/type'));
 const Move = require(path.join(__dirname, '../models/move'));
 const Pokemon = require(path.join(__dirname, '../models/pokemon'));
+const { check, validationResult } = require('express-validator');
 
 exports.moves_get = function (req, res, next) {
   // [ QUERY/FILTER MOVES DATA ]
@@ -78,7 +80,52 @@ exports.moves_instance_update_get = function (req, res, next) {
 };
 
 // [ UPDATE INSTANCE POST ]
-exports.moves_instance_update_post = function (req, res, next) {
-  res.end('upate post');
-  //
-};
+exports.moves_instance_update_post = [
+  check('name').trim().escape(),
+  check('power').trim().escape(),
+  check('pp').trim().escape(),
+  check('effect').trim().escape(),
+  function (req, res, next) {
+    async.series(
+      {
+        type: function (callback) {
+          Move.findById(req.params.id)
+            .then(({ type }) => {
+              callback(null, type);
+            })
+            .catch((error) => {
+              callback(error);
+            });
+        },
+      },
+      function (error, results) {
+        if (error) {
+          logger.error(error);
+          next(error);
+        } else {
+          const move = new Move({
+            name: req.body.name,
+            power: req.body.power,
+            pp: req.body.pp,
+            effect: req.body.effect,
+            type: results.type,
+            _id: req.params.id,
+          });
+          Move.findByIdAndUpdate(
+            req.params.id,
+            move,
+            {},
+            function (error, theMove) {
+              if (error) {
+                logger.error(error);
+                next(error);
+              } else {
+                res.redirect(theMove.url);
+              }
+            }
+          );
+        }
+      }
+    );
+  },
+];

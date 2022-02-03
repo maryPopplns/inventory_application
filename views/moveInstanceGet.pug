@@ -7,15 +7,15 @@ block content
       form(method='POST' action='')
         div.inputContainer
           label(for='moveName') Name:
-          input(id='moveName' name='moveName' required='true' value=(name === undefined ? '' : name))
+          input(id='moveName' name='name' required='true' value=(name === undefined ? '' : name))
         div.inputContainer
           label(for='movePower') Power:
-          input(id='movePower' name='movePower' required='true' value=(power === undefined ? '' : power))
+          input(id='movePower' name='power' value=(power === undefined ? '' : power))
         div.inputContainer
           label(for='movePP') PP:
-          input(id='movePP' name='movePP' required='true' value=(pp === undefined ? '' : pp))
+          input(id='movePP' name='pp' value=(pp === undefined ? '' : pp))
         div.inputContainer
           label(for='moveEffect') Effect:
-          input(id='moveEffect' name='moveEffect' required='true' value=(effect === undefined ? '' : effect))
+          input(id='moveEffect' name='effect' value=(effect === undefined ? '' : effect))
         div.submitButton
           button(type='submit') Submit

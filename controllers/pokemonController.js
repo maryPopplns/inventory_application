@@ -18,8 +18,6 @@ exports.pokemon_get = function (req, res, next) {
             )
             .join('');
           const image = images.large;
-          logger.debug(moves);
-          logger.debug(types);
           // [ PULL RANDOM MOVES ]
           const ranMoves = [];
           if (moves.length === 1) {

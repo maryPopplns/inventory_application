@@ -504,6 +504,7 @@ main.moveInstance div.moveInstanceContainer div.moveInstanceDetails div.details 
 }
 main.moveInstance div.moveInstanceContainer div.moveInstanceDetails div.details p:nth-child(2) {
   width: 75%;
+  font-family: "Open Sans";
 }
 main.moveInstance div.updateDeleteMove {
   display: flex;
