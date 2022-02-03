@@ -2,42 +2,41 @@
  PokeInventory
 </h1>
 
-## schema
+<h3 >
+Schema
+</h3>
 
 ![inventory models](public/images/pokeinventory_schema.png)
 
-## style guide
-
-![style guide](public/images/styleGuide.png)
-
-<!-- TODO fix colors -->
-
-## Site Map
+<h3 >
+ Learned
+</h3>
 
 ![style guide](public/images/siteMap.png)
 
-### learned
+<h2 align="center" >
+ Learned
+</h2>
 
-##### winston
+##### Winston
 
-- use of the logger winston (transports, levels)
-- put logger config in seperate file
+- Transports and levels, which color codes and labels outputs.
+- Put logger config in seperate file to allow for multiple configuration.
 
-##### mongoose
+##### Mongoose
 
-- validate function on schemas allow for each value in an array to be checked
-- created custom logic to populate db with pokeapi data
+- Validate function on schemas allow for each value in an array to be checked.
+- Use of the various api's that allow for CRUD operations.
 
-##### bash
+##### Bash
 
-- learned the basics of bash scripting
-  - loops, conditional statements, varibles
+- Basics of bash scripting (loops, conditional statements, varibles).
+- Used it to help populate DB with data from poke.api.
 
-##### git
+##### Git
 
-- learned how to create a branch on a branch (git branch [child branch] [parent branch])
+- How to create a branch on a branch (git branch [child branch] [parent branch]).
 
-##### css
+##### SASS
 
-- custom font path src is relative to the css file
-- learned mixins and loops to reduce duplicate code and increase modularity
+- Mixins and loops to reduce duplicate code and increase modularity.
