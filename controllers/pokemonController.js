@@ -210,8 +210,9 @@ exports.pokemon_instance_update_post = [
   check('specialDefense', 'Must be a number.').trim().isNumeric().escape(),
   check('speed', 'Must be a number.').trim().isNumeric().escape(),
   check('types.*').escape(),
+
+  // [ UPDATE FORM / SEND BACK ERRORS ]
   function (req, res, next) {
-    const id = req.params.id;
     const {
       name,
       pokeid,
@@ -224,8 +225,6 @@ exports.pokemon_instance_update_post = [
       types,
       speed,
     } = req.body;
-    logger.debug(types);
-    const errors = validationResult(req);
     const stats = {
       hp,
       attack,
@@ -233,22 +232,46 @@ exports.pokemon_instance_update_post = [
       'special-defense': specialDefense,
       speed,
     };
-    if (!errors.isEmpty()) {
-      const errorsArray = errors.array();
-      res.render('updatePokemonGet', {
-        name,
-        pokeid,
-        height,
-        weight,
-        stats,
-        errorsArray,
+    Type.find()
+      .then((result) => {
+        const errors = validationResult(req);
+        const errorsArray = errors.array();
+        // [ ERRORS ]
+        if (!errors.isEmpty()) {
+          const allTypes = result.map(({ name }) => {
+            const answer = types.includes(name);
+            const nameCap = Array.from(name)
+              .map((letter, index) =>
+                index === 0 ? letter.toUpperCase() : letter
+              )
+              .join('');
+            return {
+              name,
+              nameCap,
+              id: `${name}TypeCheckbox`,
+              checked: answer,
+            };
+          });
+          res.render('updatePokemonGet', {
+            name,
+            pokeid,
+            height,
+            weight,
+            stats,
+            allTypes,
+            errorsArray,
+          });
+        } else {
+          // [ UPDATE POKEMON ]
+          // result
+          logger.debug(result);
+          res.end();
+        }
+      })
+      .catch((error) => {
+        logger.error(error);
+        next(error);
       });
-    } else {
-      // TODO get object IDS for all types
-      // trade out names for id and update the database
-    }
-    //
-    res.end();
   },
 ];
 
