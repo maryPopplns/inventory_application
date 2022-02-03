@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  main.moveInstanceDelete
+    header
+      h3=name
+    form(method='POST' action='')
+      div.formContainer
+        div.inputContainer
+          label(for='deleteMove') Password:
+          input(id='deleteMove' type='text' name='deleteMove' placeholder='password')
+        div.buttonContainer
+          button(type='submit') submit
+    if errors
+      div.passwordErrorContainer
+        h2 Incorrect Password

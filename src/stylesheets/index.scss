@@ -726,6 +726,62 @@ main.moveInstanceUpdate {
   }
 }
 
+// [ MOVE INSTANCE DELETE ]
+main.moveInstanceDelete {
+  @include mainContent();
+  header {
+    display: flex;
+    justify-content: center;
+    h3 {
+      margin: 2rem 0;
+      font-family: $openBold;
+      font-size: 2rem;
+    }
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    div.formContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background-color: $darkyellow;
+      border-radius: 0.5rem;
+      div.inputContainer {
+        label {
+          font-family: $openBold;
+          margin-right: 1rem;
+        }
+        input {
+          font-family: $open;
+          text-indent: 0.25rem;
+        }
+      }
+      div.buttonContainer {
+        margin-top: 1rem;
+        button {
+          font-family: $open;
+          background-color: $extralightred;
+          padding: 0.5rem 1.25rem;
+          border: none;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+  div.passwordErrorContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    h2 {
+      font-family: $openBold;
+      color: $darkred;
+    }
+  }
+}
+
 // [ ERROR PAGE ]
 main.error {
   @include mainContent();

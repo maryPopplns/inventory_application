@@ -811,6 +811,62 @@ main.moveInstanceUpdate div.moveInstanceUpdateContainer form div.submitButton bu
   cursor: pointer;
 }
 
+main.moveInstanceDelete {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  background-color: #ffea60;
+  overflow-y: auto;
+}
+main.moveInstanceDelete header {
+  display: flex;
+  justify-content: center;
+}
+main.moveInstanceDelete header h3 {
+  margin: 2rem 0;
+  font-family: "Open Sans Bold";
+  font-size: 2rem;
+}
+main.moveInstanceDelete form {
+  display: flex;
+  justify-content: center;
+}
+main.moveInstanceDelete form div.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #e2c613;
+  border-radius: 0.5rem;
+}
+main.moveInstanceDelete form div.formContainer div.inputContainer label {
+  font-family: "Open Sans Bold";
+  margin-right: 1rem;
+}
+main.moveInstanceDelete form div.formContainer div.inputContainer input {
+  font-family: "Open Sans";
+  text-indent: 0.25rem;
+}
+main.moveInstanceDelete form div.formContainer div.buttonContainer {
+  margin-top: 1rem;
+}
+main.moveInstanceDelete form div.formContainer div.buttonContainer button {
+  font-family: "Open Sans";
+  background-color: #e67474;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+main.moveInstanceDelete div.passwordErrorContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+main.moveInstanceDelete div.passwordErrorContainer h2 {
+  font-family: "Open Sans Bold";
+  color: #db2d2d;
+}
+
 main.error {
   height: calc(100vh - 4rem);
   width: 100%;

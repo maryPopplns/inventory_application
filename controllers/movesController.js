@@ -129,3 +129,49 @@ exports.moves_instance_update_post = [
     );
   },
 ];
+
+exports.moves_instance_delete_get = function (req, res, next) {
+  Move.findById(req.params.id)
+    .then(({ name }) => {
+      const nameCap = Array.from(name)
+        .map((letter, index) => (index === 0 ? letter.toUpperCase() : letter))
+        .join('');
+      res.render('deleteMoveGet', { name: nameCap, errors: false });
+    })
+    .catch((error) => {
+      logger.error(error);
+      next(error);
+    });
+};
+
+exports.moves_instance_delete_post = [
+  check('deleteMove').trim().escape(),
+  function (req, res, next) {
+    // [ INCORRECT PASSWORD ]
+    if (req.body.deleteMove !== process.env.DELETE_PASSWORD) {
+      Move.findById(req.params.id)
+        .then(({ name }) => {
+          const nameCap = Array.from(name)
+            .map((letter, index) =>
+              index === 0 ? letter.toUpperCase() : letter
+            )
+            .join('');
+          res.render('deleteMoveGet', { name: nameCap, errors: true });
+        })
+        .catch((error) => {
+          logger.error(error);
+          next(error);
+        });
+      // [ CORRECT PASSWORD ]
+    } else {
+      Move.findByIdAndDelete(req.params.id)
+        .then(() => {
+          res.redirect('/moves');
+        })
+        .catch((error) => {
+          logger.error(error);
+          next(error);
+        });
+    }
+  },
+];
