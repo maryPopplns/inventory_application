@@ -307,6 +307,16 @@ exports.pokemon_instance_update_post = [
 ];
 
 exports.pokemon_instance_delete_get = function (req, res, next) {
-  const id = req.params.id;
-  res.end(id);
+  Pokemon.findById(req.params.id)
+    .then(({ name }) => {
+      res.render('deletePokemonGet', { name });
+    })
+    .catch((error) => {
+      logger.error(error);
+      next(error);
+    });
+};
+
+exports.pokemon_instance_delete_post = function (req, res, next) {
+  res.end(req.params.id);
 };

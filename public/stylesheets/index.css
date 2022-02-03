@@ -684,11 +684,39 @@ main.updatePokemonGet div.updatePokemonGetContainer ul.errors li div:nth-child(1
   margin-right: 1rem;
 }
 
-main.updatePokemonPost {
+main.pokemonInstanceDelete {
   height: calc(100vh - 4rem);
   width: 100%;
   background-color: #ffea60;
   overflow-y: auto;
+}
+main.pokemonInstanceDelete header {
+  display: flex;
+  justify-content: center;
+}
+main.pokemonInstanceDelete header h3 {
+  margin: 2rem 0;
+  font-family: "Open Sans Bold";
+  font-size: 2rem;
+}
+main.pokemonInstanceDelete form {
+  display: flex;
+  justify-content: center;
+}
+main.pokemonInstanceDelete form div.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  border: 3px solid black;
+}
+main.pokemonInstanceDelete form div.formContainer div.inputContainer label {
+  font-family: "Open Sans Bold";
+  margin-right: 1rem;
+}
+main.pokemonInstanceDelete form div.formContainer div.inputContainer input {
+  font-family: "Open Sans";
+  text-indent: 0.25rem;
 }
 
 main.error {

@@ -602,8 +602,38 @@ main.updatePokemonGet {
 }
 
 // [ UPDATE POKEMON POST ]
-main.updatePokemonPost {
+main.pokemonInstanceDelete {
   @include mainContent();
+  header {
+    display: flex;
+    justify-content: center;
+    h3 {
+      margin: 2rem 0;
+      font-family: $openBold;
+      font-size: 2rem;
+    }
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    div.formContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      border: 3px solid black;
+      div.inputContainer {
+        label {
+          font-family: $openBold;
+          margin-right: 1rem;
+        }
+        input {
+          font-family: $open;
+          text-indent: 0.25rem;
+        }
+      }
+    }
+  }
 }
 // [ ERROR PAGE ]
 main.error {
