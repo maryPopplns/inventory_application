@@ -39,6 +39,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "14.18.1"
+  },
   "description": "",
   "devDependencies": {
     "@babel/cli": "^7.16.8",
