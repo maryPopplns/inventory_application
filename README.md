@@ -17,6 +17,7 @@ Schema
 <h3 >
  Site Map
 </h3>
+
 ![style guide](public/images/siteMap.png)
 
 <h2 align="center" >
